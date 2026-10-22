@@ -3,20 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The Reels Editing Engine | Tự Động Biên Tập Reels Chuyên Nghiệp Bằng AI - Sia Trường</title>
-  <meta name="description" content="Giải phóng hàng trăm giờ cắt ghép video. Trao cho bạn một video hoàn chỉnh sẵn sàng đăng, đúng màu sắc & phong cách cá nhân của riêng bạn. Bạn chỉ đạo, AI xây dựng.">
-  <meta property="og:title" content="The Reels Editing Engine | Tự Động Biên Tập Reels Bằng AI - SiaTruong.com">
+  <title>The Reels Editing Engine | Tự Động Biên Tập Reels Bằng AI - Sia Trương</title>
+  <meta name="description" content="Giải phóng hàng trăm giờ cắt ghép video. Trao cho bạn một video hoàn chỉnh sẵn sàng đăng, đúng màu sắc & phong cách độc bản. Bạn chỉ đạo, AI tự tay xây dựng.">
+  <meta property="og:title" content="The Reels Editing Engine | Sia Trương">
   <meta property="og:description" content="Quay một lần, xuất bản 6 định dạng. Tự động biên tập video trong vài phút, không còn tốn hàng giờ cặm cụi CapCut.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://siatruong.com">
 
   <!-- Favicon -->
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎬</text></svg>">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎞️</text></svg>">
 
-  <!-- Google Fonts -->
+  <!-- Google Fonts: Instrument Serif, Playfair Display & Plus Jakarta Sans -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -25,229 +25,294 @@
       theme: {
         extend: {
           colors: {
-            cream: {
-              50: '#FDFCF7',
-              100: '#FAF7EE',
-              200: '#F4EFE0',
-              300: '#ECE3CE',
-              400: '#DFD2B5',
-            },
-            noir: {
-              900: '#151413',
-              800: '#22201D',
-              700: '#34312B',
-              600: '#4F4A42',
-              500: '#726B5F',
-            },
-            retroRed: {
-              500: '#D93829',
-              600: '#BA2617',
-              700: '#991B0E',
-            },
-            sand: '#EDE8DB'
+            tsmBg: '#F8F6EE',
+            tsmCream: '#FAF8F3',
+            tsmWheat: '#EFECE2',
+            tsmDark: '#1E1E1E',
+            tsmRed: '#BD1B1B',
+            tsmRedDark: '#9E1515',
+            tsmGray: '#64615B',
+            tsmBorder: 'rgba(30, 30, 30, 0.12)'
           },
           fontFamily: {
             serif: ['"Instrument Serif"', '"Playfair Display"', 'Georgia', 'serif'],
             display: ['"Playfair Display"', 'Georgia', 'serif'],
             sans: ['"Plus Jakarta Sans"', 'Inter', 'system-ui', 'sans-serif'],
+            mono: ['"Space Mono"', 'monospace']
           }
         }
       }
     }
   </script>
 
-  <!-- Custom Styles for Editorial Aesthetics -->
+  <!-- Editorial Vintage Styles & Rich Animations -->
   <style>
+    :root {
+      --bg: #F8F6EE;
+      --noir: #1E1E1E;
+      --red: #BD1B1B;
+      --border: rgba(30, 30, 30, 0.12);
+    }
+
     body {
-      background-color: #FAF7EE;
-      color: #151413;
+      background-color: var(--bg);
+      color: var(--noir);
       font-family: 'Plus Jakarta Sans', sans-serif;
       -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
     }
 
     .font-serif-vintage {
       font-family: 'Instrument Serif', 'Playfair Display', Georgia, serif;
     }
 
-    .hairline-b {
-      border-bottom: 1px solid rgba(34, 32, 29, 0.12);
+    .hairline-b { border-bottom: 1px solid var(--border); }
+    .hairline-t { border-top: 1px solid var(--border); }
+    .hairline-r { border-right: 1px solid var(--border); }
+    .hairline-l { border-left: 1px solid var(--border); }
+    .hairline-all { border: 1px solid var(--border); }
+
+    /* Animated red pulse indicator */
+    @keyframes redPulse {
+      0% { box-shadow: 0 0 0 0 rgba(189, 27, 27, 0.7); }
+      70% { box-shadow: 0 0 0 8px rgba(189, 27, 27, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(189, 27, 27, 0); }
     }
-    .hairline-t {
-      border-top: 1px solid rgba(34, 32, 29, 0.12);
+    .animate-red-pulse {
+      animation: redPulse 1.8s infinite cubic-bezier(0.66, 0, 0, 1);
     }
-    .hairline-r {
-      border-right: 1px solid rgba(34, 32, 29, 0.12);
+
+    /* Floating badge animation (like on thestartupmom) */
+    @keyframes floatBadge {
+      0%, 100% { transform: rotate(-2.4deg) translateY(0); }
+      50% { transform: rotate(-2.4deg) translateY(-8px); }
     }
-    .hairline-all {
-      border: 1px solid rgba(34, 32, 29, 0.12);
+    .animate-float-badge {
+      animation: floatBadge 4.5s ease-in-out infinite;
+    }
+
+    /* Floating sticker slight reverse */
+    @keyframes floatSticker {
+      0%, 100% { transform: rotate(1.8deg) translateY(0); }
+      50% { transform: rotate(1.8deg) translateY(-6px); }
+    }
+    .animate-float-sticker {
+      animation: floatSticker 5s ease-in-out infinite 0.8s;
     }
 
     /* Marquee animation */
-    @keyframes marquee {
+    @keyframes marqueeScroll {
       0% { transform: translateX(0%); }
       100% { transform: translateX(-50%); }
     }
-    .animate-marquee {
+    .animate-marquee-scroll {
       display: inline-flex;
       white-space: nowrap;
-      animation: marquee 28s linear infinite;
+      animation: marqueeScroll 24s linear infinite;
     }
-    .animate-marquee:hover {
+    .animate-marquee-scroll:hover {
       animation-play-state: paused;
     }
 
-    /* Soundwave animation */
-    @keyframes wave {
-      0%, 100% { height: 6px; }
+    /* Soundwave bars animation */
+    @keyframes soundBarMotion {
+      0%, 100% { height: 4px; }
       50% { height: 26px; }
     }
     .sound-bar {
-      animation: wave 1.2s ease-in-out infinite;
+      animation: soundBarMotion 1.1s ease-in-out infinite;
     }
     .sound-bar:nth-child(2) { animation-delay: 0.2s; }
     .sound-bar:nth-child(3) { animation-delay: 0.4s; }
     .sound-bar:nth-child(4) { animation-delay: 0.1s; }
     .sound-bar:nth-child(5) { animation-delay: 0.5s; }
 
-    /* Custom scrollbar */
-    ::-webkit-scrollbar {
-      width: 8px;
+    /* Animated hand-drawn strike-through */
+    .strikethrough-animated {
+      position: relative;
+      display: inline-block;
     }
-    ::-webkit-scrollbar-track {
-      background: #FAF7EE;
+    .strikethrough-animated::after {
+      content: '';
+      position: absolute;
+      left: -4%;
+      top: 52%;
+      width: 108%;
+      height: 4px;
+      background: #BD1B1B;
+      transform: rotate(-2.5deg);
+      border-radius: 2px;
+      box-shadow: 0 1px 3px rgba(189,27,27,0.3);
     }
-    ::-webkit-scrollbar-thumb {
-      background: #D5CBB5;
-      border-radius: 4px;
+
+    /* Scroll Reveal classes */
+    .reveal {
+      opacity: 0;
+      transform: translateY(32px);
+      transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: opacity, transform;
     }
-    ::-webkit-scrollbar-thumb:hover {
-      background: #BA2617;
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Custom smooth accordion transition */
+    details[open] summary ~ * {
+      animation: sweepDown 0.35s ease-in-out;
+    }
+    @keyframes sweepDown {
+      0% { opacity: 0; transform: translateY(-8px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Subtle hover scale */
+    .hover-lift {
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .hover-lift:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 28px -6px rgba(30, 30, 30, 0.08);
     }
   </style>
 </head>
-<body class="selection:bg-retroRed-600 selection:text-white">
+<body class="selection:bg-tsmRed selection:text-white">
 
-  <!-- TOP URGENCY / ANNOUNCEMENT BAR -->
-  <div class="bg-noir-900 text-cream-100 py-2.5 px-4 text-xs sm:text-sm hairline-b sticky top-0 z-50 shadow-sm">
-    <div class="max-w-6xl mx-auto flex flex-wrap items-center justify-between gap-2">
-      <div class="flex items-center gap-2">
-        <span class="inline-block w-2 h-2 rounded-full bg-red-500 animate-pulse"></span>
-        <span class="font-semibold tracking-wider uppercase text-[11px] sm:text-xs text-red-300">Đợt Ưu Đãi Giới Hạn</span>
-        <span class="hidden md:inline text-neutral-400">|</span>
-        <span class="text-neutral-200">Cơ hội cuối nhận giá ưu đãi trải nghiệm trước khi đóng cổng</span>
+  <!-- TOP URGENT ANNOUNCEMENT BAR (Sticky on scroll) -->
+  <div class="bg-tsmDark text-tsmCream py-2.5 px-4 text-xs sm:text-sm hairline-b sticky top-0 z-50 shadow-md">
+    <div class="max-w-6xl mx-auto flex flex-wrap items-center justify-between gap-3">
+      <div class="flex items-center gap-2.5">
+        <span class="inline-block w-2.5 h-2.5 rounded-full bg-tsmRed animate-red-pulse"></span>
+        <span class="font-mono text-[11px] uppercase tracking-wider text-red-300 font-bold">Mở Bán Giới Hạn</span>
+        <span class="hidden md:inline text-neutral-500">|</span>
+        <span class="text-neutral-200 font-medium">Cơ hội cuối cùng sở hữu với giá ưu đãi trải nghiệm <strong>$79 (1.990.000đ)</strong></span>
       </div>
 
-      <!-- Live countdown timer -->
-      <div class="flex items-center gap-3 font-mono text-xs sm:text-sm tracking-tight text-white/90">
-        <span class="text-neutral-400 text-[11px] uppercase tracking-wider font-sans hidden sm:inline">Ưu đãi đóng lại sau:</span>
+      <!-- Live countdown timer with pulsing effect -->
+      <div class="flex items-center gap-2 font-mono text-xs sm:text-sm tracking-tight text-white/90">
+        <span class="text-neutral-400 text-[11px] uppercase tracking-wider font-sans hidden sm:inline">Cổng ưu đãi đóng sau:</span>
         <div class="flex items-center gap-1.5 font-bold">
-          <span id="cd-days" class="bg-noir-800 px-1.5 py-0.5 rounded border border-white/10">01</span><span class="text-neutral-500">:</span>
-          <span id="cd-hours" class="bg-noir-800 px-1.5 py-0.5 rounded border border-white/10">14</span><span class="text-neutral-500">:</span>
-          <span id="cd-mins" class="bg-noir-800 px-1.5 py-0.5 rounded border border-white/10">36</span><span class="text-neutral-500">:</span>
-          <span id="cd-secs" class="bg-noir-800 px-1.5 py-0.5 rounded border border-white/10 text-red-400">45</span>
+          <span id="cd-days" class="bg-neutral-800 px-2 py-0.5 rounded border border-white/10 shadow-inner">01</span><span class="text-neutral-500">:</span>
+          <span id="cd-hours" class="bg-neutral-800 px-2 py-0.5 rounded border border-white/10 shadow-inner">13</span><span class="text-neutral-500">:</span>
+          <span id="cd-mins" class="bg-neutral-800 px-2 py-0.5 rounded border border-white/10 shadow-inner">48</span><span class="text-neutral-500">:</span>
+          <span id="cd-secs" class="bg-neutral-800 px-2 py-0.5 rounded border border-white/10 shadow-inner text-red-400">22</span>
         </div>
       </div>
     </div>
   </div>
 
   <!-- MAIN HEADER NAVIGATION -->
-  <header class="hairline-b bg-cream-50/95 backdrop-blur sticky top-[37px] z-40 transition-all">
+  <header class="hairline-b bg-tsmBg/95 backdrop-blur sticky top-[37px] z-40 transition-all">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 h-20 flex items-center justify-between">
-      <!-- Logo -->
-      <a href="#" class="group flex items-center gap-2.5">
-        <div class="w-9 h-9 rounded-full bg-retroRed-600 flex items-center justify-center text-white font-serif-vintage text-xl font-bold shadow-sm group-hover:scale-105 transition-transform">
+      <!-- Logo: Sia Trương ™ -->
+      <a href="#" class="group flex items-center gap-3">
+        <div class="w-10 h-10 rounded-full bg-tsmRed text-white flex items-center justify-center font-serif-vintage text-2xl font-bold shadow group-hover:scale-105 transition-transform">
           S
         </div>
         <div>
-          <span class="font-serif-vintage text-2xl sm:text-3xl font-semibold tracking-tight block leading-none text-noir-900">
-            Sia Trường
+          <span class="font-serif-vintage text-2xl sm:text-3xl font-semibold tracking-tight block leading-none text-tsmDark">
+            Sia Trương <span class="text-xs align-top font-sans text-neutral-400">™</span>
           </span>
-          <span class="text-[10px] tracking-[0.2em] uppercase font-bold text-neutral-500 block">
+          <span class="text-[9px] tracking-[0.24em] uppercase font-bold text-neutral-500 block mt-1">
             Reels Editing Engine
           </span>
         </div>
       </a>
 
       <!-- Desktop Nav -->
-      <nav class="hidden md:flex items-center gap-8 text-[13px] font-semibold tracking-widest uppercase text-noir-700">
-        <a href="#how-it-works" class="hover:text-retroRed-600 transition-colors">Cách Hoạt Động</a>
-        <a href="#demo" class="hover:text-retroRed-600 transition-colors">Xem Thực Tế</a>
-        <a href="#styles" class="hover:text-retroRed-600 transition-colors">Phong Cách</a>
-        <a href="#pricing" class="hover:text-retroRed-600 transition-colors">Bảng Giá</a>
-        <a href="#faq" class="hover:text-retroRed-600 transition-colors">Hỏi Đáp</a>
+      <nav class="hidden md:flex items-center gap-8 text-[12px] font-bold tracking-widest uppercase text-tsmDark">
+        <a href="#how-it-works" class="hover:text-tsmRed transition-colors">Cách Hoạt Động</a>
+        <a href="#demo" class="hover:text-tsmRed transition-colors">So Sánh Thực Tế</a>
+        <a href="#styles" class="hover:text-tsmRed transition-colors">Bộ Phong Cách</a>
+        <a href="#pricing" class="hover:text-tsmRed transition-colors">Bảng Giá</a>
+        <a href="#faq" class="hover:text-tsmRed transition-colors">Câu Hỏi Thường Gặp</a>
       </nav>
 
       <!-- CTA Button -->
       <div class="flex items-center gap-3">
-        <a href="#pricing" class="inline-flex items-center justify-center px-4 sm:px-6 py-2.5 rounded-full bg-noir-900 text-cream-50 text-xs sm:text-sm font-semibold tracking-wide hover:bg-retroRed-600 transition-all duration-300 shadow-sm hover:shadow hover:-translate-y-0.5">
-          Sở Hữu Ngay <span class="ml-1.5 text-red-300">→</span>
+        <a href="#pricing" class="inline-flex items-center justify-center px-5 sm:px-7 py-2.5 rounded-full bg-tsmDark text-tsmCream text-xs sm:text-sm font-semibold tracking-wide hover:bg-tsmRed transition-all duration-300 shadow hover:shadow-lg hover:-translate-y-0.5">
+          Sở Hữu Cỗ Máy <span class="ml-1.5 text-red-300">→</span>
         </a>
       </div>
     </div>
   </header>
 
-  <!-- HERO SECTION -->
+  <!-- HERO SECTION WITH RICH EDITORIAL TYPOGRAPHY -->
   <section class="relative pt-16 pb-20 sm:pt-24 sm:pb-32 overflow-hidden hairline-b">
-    <!-- Subtle Background Elements -->
-    <div class="absolute inset-0 opacity-[0.03] pointer-events-none" style="background-image: radial-gradient(#151413 1px, transparent 1px); background-size: 24px 24px;"></div>
     
+    <!-- Floating Editorial Badge in top corner -->
+    <div class="hidden lg:block absolute top-12 right-12 z-20 animate-float-badge pointer-events-none">
+      <div class="p-4 rounded-2xl bg-tsmCream hairline-all shadow-xl max-w-[210px] text-center rotate-[-2.4deg]">
+        <span class="text-[10px] font-mono uppercase font-bold tracking-wider text-tsmRed block mb-1">Quy trình tự động</span>
+        <span class="font-serif-vintage text-lg font-bold text-tsmDark block leading-tight">Từ video thô sang Reels hoàn thiện</span>
+        <span class="text-[10px] text-neutral-500 block mt-1">Chuẩn gu thương hiệu riêng</span>
+      </div>
+    </div>
+
+    <!-- Floating Sticker in bottom-left -->
+    <div class="hidden lg:block absolute bottom-12 left-10 z-20 animate-float-sticker pointer-events-none">
+      <div class="px-4 py-2 rounded-full bg-yellow-100 hairline-all text-xs font-mono font-bold text-yellow-900 shadow-md">
+        ⚡ 95% Tiết kiệm thời gian mỗi tuần
+      </div>
+    </div>
+
     <div class="max-w-5xl mx-auto px-4 sm:px-6 text-center relative z-10">
       
-      <!-- Top Badge -->
-      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-cream-200/80 hairline-all text-xs font-semibold tracking-widest uppercase text-noir-700 mb-6">
-        <span class="w-1.5 h-1.5 rounded-full bg-retroRed-600"></span>
-        Hệ thống Tự Động Hóa Video Bằng Trí Tuệ Nhân Tạo
+      <!-- Eyebrow Pill -->
+      <div class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-tsmWheat/80 hairline-all text-xs font-semibold tracking-widest uppercase text-tsmDark mb-8 reveal">
+        <span class="w-2 h-2 rounded-full bg-tsmRed animate-red-pulse"></span>
+        Hệ thống Tự Động Hóa Reels Dành Riêng Cho Creator & Solo Founder
       </div>
 
-      <!-- Main Heading with Editorial Strike-through and Italic Serif -->
-      <h1 class="font-serif-vintage text-4xl sm:text-6xl md:text-7xl lg:text-[84px] leading-[1.08] tracking-tight text-noir-900 max-w-4xl mx-auto mb-8">
-        Biên tập video Reels của bạn <br class="hidden sm:inline" />
-        <span class="relative inline-block text-neutral-400 font-sans font-light line-through decoration-retroRed-600 decoration-4 sm:decoration-[5px] mx-2">
+      <!-- Main Heading: The Signature "in hours" strikethrough like thestartupmom -->
+      <h1 class="font-serif-vintage text-4xl sm:text-6xl md:text-7xl lg:text-[86px] leading-[1.06] tracking-tight text-tsmDark max-w-4xl mx-auto mb-8 reveal">
+        Biên tập video Reels của bạn <br />
+        <span class="strikethrough-animated font-sans font-light text-neutral-400 mx-2">
           trong hàng giờ
         </span>
         <br class="sm:hidden" />
-        <span class="italic font-normal text-retroRed-600">tự động trong vài phút.</span>
+        <span class="italic font-normal text-tsmRed">tự động chỉ trong vài phút.</span>
       </h1>
 
-      <!-- Subtitle Description -->
-      <p class="max-w-2xl mx-auto text-base sm:text-lg text-noir-600 leading-relaxed font-normal mb-10">
-        Giải phóng hàng chục giờ cặm cụi cắt ghép video mỗi tuần. Nhận ngay video hoàn chỉnh sẵn sàng đăng tải lên Reels, TikTok, Shorts với đúng màu sắc & phong cách độc bản của bạn. <span class="font-medium text-noir-900">Bạn chỉ đạo — AI tự tay xây dựng.</span>
+      <!-- Subheadline -->
+      <p class="max-w-2xl mx-auto text-base sm:text-lg text-tsmGray leading-relaxed font-normal mb-10 reveal">
+        Không còn phải ngồi hàng giờ cặm cụi cắt ghép từng giây trên CapCut. Hệ thống tự động tiếp nhận video quay thô của bạn, cắt tỉa khoảng lặng, chèn phụ đề động bắt mắt và xuất bản video hoàn chỉnh sẵn sàng đăng tải. <strong class="text-tsmDark font-semibold">Bạn chỉ đạo — AI tự tay xây dựng.</strong>
       </p>
 
-      <!-- CTA Group -->
-      <div class="flex flex-col sm:flex-row items-center justify-center gap-4 max-w-md mx-auto mb-16">
-        <a href="#pricing" class="w-full sm:w-auto px-8 py-4 rounded-full bg-retroRed-600 text-white font-semibold text-base shadow-lg hover:bg-retroRed-700 hover:shadow-xl hover:-translate-y-0.5 transition-all text-center">
-          Nhận Cỗ Máy Ngay (Ưu đãi 1.990.000đ) →
+      <!-- Primary Action Buttons -->
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4 max-w-md mx-auto mb-16 reveal">
+        <a href="#pricing" class="w-full sm:w-auto px-8 py-4 rounded-full bg-tsmRed text-white font-semibold text-base shadow-xl hover:bg-tsmRedDark hover:shadow-2xl hover:-translate-y-0.5 transition-all text-center">
+          Sở Hữu Cỗ Máy Ngay (1.990.000đ) →
         </a>
-        <a href="#demo" class="w-full sm:w-auto px-7 py-4 rounded-full bg-cream-100 hairline-all text-noir-800 font-semibold text-base hover:bg-cream-200 transition-all text-center flex items-center justify-center gap-2">
-          <svg class="w-5 h-5 text-retroRed-600" fill="currentColor" viewBox="0 0 20 20">
+        <a href="#demo" class="w-full sm:w-auto px-7 py-4 rounded-full bg-tsmCream hairline-all text-tsmDark font-semibold text-base hover:bg-tsmWheat transition-all text-center flex items-center justify-center gap-2 shadow-sm">
+          <svg class="w-5 h-5 text-tsmRed" fill="currentColor" viewBox="0 0 20 20">
             <path d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z"></path>
           </svg>
           Xem Thử Thực Tế
         </a>
       </div>
 
-      <!-- Proof Metric Cards (as seen on thestartupmom) -->
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 max-w-3xl mx-auto text-left">
-        <div class="p-4 sm:p-5 rounded-2xl bg-cream-50 hairline-all">
+      <!-- Real Metric Proof Badges (4 Column Stats) -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 max-w-4xl mx-auto text-left reveal">
+        <div class="p-5 rounded-2xl bg-tsmCream hairline-all hover-lift">
           <span class="text-xs uppercase font-bold tracking-wider text-neutral-500 block mb-1">Lượt xem kiểm chứng</span>
-          <span class="font-serif-vintage text-2xl sm:text-3xl font-bold text-noir-900 block">284,500+</span>
+          <span class="font-serif-vintage text-2xl sm:text-3xl font-bold text-tsmDark block">284,500+</span>
           <span class="text-[11px] text-neutral-500">tổng lượt tiếp cận tự nhiên</span>
         </div>
-        <div class="p-4 sm:p-5 rounded-2xl bg-cream-50 hairline-all">
-          <span class="text-xs uppercase font-bold tracking-wider text-neutral-500 block mb-1">Follower mới</span>
-          <span class="font-serif-vintage text-2xl sm:text-3xl font-bold text-retroRed-600 block">+4,820</span>
-          <span class="text-[11px] text-neutral-500">tăng trưởng từ 1 chuỗi Reels</span>
+        <div class="p-5 rounded-2xl bg-tsmCream hairline-all hover-lift">
+          <span class="text-xs uppercase font-bold tracking-wider text-neutral-500 block mb-1">Follower thu hút mới</span>
+          <span class="font-serif-vintage text-2xl sm:text-3xl font-bold text-tsmRed block">+4,820</span>
+          <span class="text-[11px] text-neutral-500">tăng trưởng từ chuỗi video AI</span>
         </div>
-        <div class="p-4 sm:p-5 rounded-2xl bg-cream-50 hairline-all">
+        <div class="p-5 rounded-2xl bg-tsmCream hairline-all hover-lift">
           <span class="text-xs uppercase font-bold tracking-wider text-neutral-500 block mb-1">Thời gian tiết kiệm</span>
-          <span class="font-serif-vintage text-2xl sm:text-3xl font-bold text-noir-900 block">95%</span>
-          <span class="text-[11px] text-neutral-500">từ 3 giờ xuống còn 5 phút</span>
+          <span class="font-serif-vintage text-2xl sm:text-3xl font-bold text-tsmDark block">95%</span>
+          <span class="text-[11px] text-neutral-500">từ 3 giờ xuống còn 3 phút</span>
         </div>
-        <div class="p-4 sm:p-5 rounded-2xl bg-cream-50 hairline-all">
-          <span class="text-xs uppercase font-bold tracking-wider text-neutral-500 block mb-1">Giữ chân người xem</span>
-          <span class="font-serif-vintage text-2xl sm:text-3xl font-bold text-noir-900 block">31.4s</span>
-          <span class="text-[11px] text-neutral-500">tỷ lệ xem hết video cao vượt trội</span>
+        <div class="p-5 rounded-2xl bg-tsmCream hairline-all hover-lift">
+          <span class="text-xs uppercase font-bold tracking-wider text-neutral-500 block mb-1">Thời lượng giữ chân</span>
+          <span class="font-serif-vintage text-2xl sm:text-3xl font-bold text-tsmDark block">31.4s</span>
+          <span class="text-[11px] text-neutral-500">tỷ lệ xem hết video vượt trội</span>
         </div>
       </div>
 
@@ -255,105 +320,105 @@
   </section>
 
   <!-- MARQUEE INFINITE TICKER TAPE -->
-  <div class="bg-noir-900 text-cream-100 py-3.5 overflow-hidden hairline-b font-mono text-xs sm:text-sm tracking-widest uppercase">
-    <div class="animate-marquee flex items-center gap-12 whitespace-nowrap">
+  <div class="bg-tsmDark text-tsmCream py-3.5 overflow-hidden hairline-b font-mono text-xs sm:text-sm tracking-widest uppercase">
+    <div class="animate-marquee-scroll flex items-center gap-12 whitespace-nowrap">
       <span>✦ Từ Video Quay Thô Đến Reels Triệu View Trong Vài Phút</span>
-      <span class="text-retroRed-500">✦ Không Cần Ngồi Cắt Ghép CapCut Thủ Công</span>
-      <span>✦ Phong Cách Riêng Biệt Chuẩn Thương Hiệu Của Bạn</span>
-      <span class="text-retroRed-500">✦ Quay 1 Lần, Xuất Bản 6 Kênh Đa Nền Tảng</span>
-      <span>✦ Tự Động Lọc Từ Thừa & Khoảng Lặng</span>
-      <span class="text-retroRed-500">✦ Phụ Đề Động Thu Hút Triệu View</span>
-      <!-- Duplicate for seamless loop -->
+      <span class="text-red-400 font-bold">✦ Không Cần Ngồi Cắt Ghép CapCut Thủ Công</span>
+      <span>✦ Phong Cách Độc Bản Mang Tên Sia Trương</span>
+      <span class="text-red-400 font-bold">✦ Quay 1 Lần, Xuất Bản 6 Kênh Đa Nền Tảng</span>
+      <span>✦ Tự Động Lọc Từ Thừa & Khoảng Lặng Chết</span>
+      <span class="text-red-400 font-bold">✦ Phụ Đề Động Thu Hút Triệu View</span>
+      <!-- Duplicate for infinite seamless scroll -->
       <span>✦ Từ Video Quay Thô Đến Reels Triệu View Trong Vài Phút</span>
-      <span class="text-retroRed-500">✦ Không Cần Ngồi Cắt Ghép CapCut Thủ Công</span>
-      <span>✦ Phong Cách Riêng Biệt Chuẩn Thương Hiệu Của Bạn</span>
-      <span class="text-retroRed-500">✦ Quay 1 Lần, Xuất Bản 6 Kênh Đa Nền Tảng</span>
-      <span>✦ Tự Động Lọc Từ Thừa & Khoảng Lặng</span>
-      <span class="text-retroRed-500">✦ Phụ Đề Động Thu Hút Triệu View</span>
+      <span class="text-red-400 font-bold">✦ Không Cần Ngồi Cắt Ghép CapCut Thủ Công</span>
+      <span>✦ Phong Cách Độc Bản Mang Tên Sia Trương</span>
+      <span class="text-red-400 font-bold">✦ Quay 1 Lần, Xuất Bản 6 Kênh Đa Nền Tảng</span>
+      <span>✦ Tự Động Lọc Từ Thừa & Khoảng Lặng Chết</span>
+      <span class="text-red-400 font-bold">✦ Phụ Đề Động Thu Hút Triệu View</span>
     </div>
   </div>
 
   <!-- INTERACTIVE COMPARISON: RAW CLIP VS FINISHED REEL -->
-  <section id="demo" class="py-20 sm:py-28 hairline-b bg-cream-100/60">
+  <section id="demo" class="py-20 sm:py-28 hairline-b bg-tsmWheat/40">
     <div class="max-w-5xl mx-auto px-4 sm:px-6">
       
-      <div class="text-center max-w-2xl mx-auto mb-12">
-        <span class="text-xs font-bold uppercase tracking-widest text-retroRed-600 block mb-2">Thực tế trước & sau</span>
-        <h2 class="font-serif-vintage text-3xl sm:text-5xl text-noir-900 font-semibold mb-4">
+      <div class="text-center max-w-2xl mx-auto mb-12 reveal">
+        <span class="text-xs font-mono font-bold uppercase tracking-widest text-tsmRed block mb-2">Thực tế trước & sau</span>
+        <h2 class="font-serif-vintage text-3xl sm:text-5xl text-tsmDark font-semibold mb-4 leading-tight">
           Đừng chỉ nghe lời tôi nói. <br />
-          <span class="italic font-normal">Hãy xem một video thô biến thành một Reels viral.</span>
+          <span class="italic font-normal">Hãy xem một video thô biến thành Reels viral.</span>
         </h2>
-        <p class="text-noir-600 text-sm sm:text-base">
-          Cùng một đoạn clip gốc bạn tự quay bằng điện thoại. Bấm chuyển đổi giữa 2 tab bên dưới để cảm nhận sự khác biệt.
+        <p class="text-tsmGray text-sm sm:text-base">
+          Cùng một đoạn clip gốc bạn tự quay bằng camera điện thoại. Bấm chuyển đổi giữa 2 nút bên dưới để trải nghiệm sự khác biệt.
         </p>
       </div>
 
       <!-- Tab Switcher -->
-      <div class="flex justify-center mb-8">
-        <div class="inline-flex p-1.5 rounded-full bg-cream-200 hairline-all">
-          <button id="btn-raw" onclick="switchClip('raw')" class="px-6 py-2.5 rounded-full text-xs sm:text-sm font-bold tracking-wider uppercase transition-all duration-300 text-neutral-600 hover:text-noir-900">
+      <div class="flex justify-center mb-8 reveal">
+        <div class="inline-flex p-1.5 rounded-full bg-tsmWheat hairline-all shadow-inner">
+          <button id="btn-raw" onclick="switchClip('raw')" class="px-6 py-2.5 rounded-full text-xs sm:text-sm font-bold tracking-wider uppercase transition-all duration-300 text-neutral-600 hover:text-tsmDark">
             [1] Video Thô Ban Đầu (Raw Clip)
           </button>
-          <button id="btn-finished" onclick="switchClip('finished')" class="px-6 py-2.5 rounded-full text-xs sm:text-sm font-bold tracking-wider uppercase transition-all duration-300 bg-noir-900 text-white shadow-md">
+          <button id="btn-finished" onclick="switchClip('finished')" class="px-6 py-2.5 rounded-full text-xs sm:text-sm font-bold tracking-wider uppercase transition-all duration-300 bg-tsmDark text-white shadow-md">
             [2] Reels Hoàn Thiện (AI Finished) ✨
           </button>
         </div>
       </div>
 
       <!-- Interactive Mockup Container -->
-      <div class="max-w-4xl mx-auto rounded-3xl hairline-all bg-cream-50 overflow-hidden shadow-xl p-4 sm:p-8">
+      <div class="max-w-4xl mx-auto rounded-3xl hairline-all bg-tsmCream overflow-hidden shadow-2xl p-4 sm:p-8 reveal">
         <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
           
-          <!-- Phone Screen Simulation -->
+          <!-- Smartphone Screen Simulation -->
           <div class="md:col-span-5 flex justify-center">
-            <div class="relative w-[260px] sm:w-[280px] h-[520px] rounded-[36px] bg-noir-900 p-3 shadow-2xl border-4 border-neutral-800 flex flex-col justify-between overflow-hidden">
+            <div class="relative w-[270px] h-[530px] rounded-[38px] bg-tsmDark p-3 shadow-2xl border-4 border-neutral-800 flex flex-col justify-between overflow-hidden">
               
-              <!-- Phone Notch -->
-              <div class="absolute top-0 left-1/2 -translate-x-1/2 w-28 h-5 bg-noir-900 rounded-b-xl z-30"></div>
+              <!-- Notch -->
+              <div class="absolute top-0 left-1/2 -translate-x-1/2 w-28 h-5 bg-tsmDark rounded-b-xl z-30"></div>
 
-              <!-- Inner Video Canvas Screen -->
-              <div id="video-screen" class="relative w-full h-full rounded-[26px] bg-gradient-to-b from-neutral-800 to-neutral-900 overflow-hidden flex flex-col justify-between p-4 text-white transition-all duration-500">
+              <!-- Inner Video Screen -->
+              <div id="video-screen" class="relative w-full h-full rounded-[28px] bg-gradient-to-b from-neutral-800 to-neutral-900 overflow-hidden flex flex-col justify-between p-4 text-white transition-all duration-500">
                 
-                <!-- Video Status Badge -->
-                <div class="relative z-20 flex justify-between items-center text-[10px] font-mono opacity-80 pt-4">
-                  <span id="badge-mode" class="bg-red-600/90 text-white px-2 py-0.5 rounded font-bold uppercase tracking-wider">
-                    Đã Xử Lý Xong
+                <!-- Status Badge -->
+                <div class="relative z-20 flex justify-between items-center text-[10px] font-mono opacity-90 pt-4">
+                  <span id="badge-mode" class="bg-tsmRed text-white px-2.5 py-0.5 rounded font-bold uppercase tracking-wider">
+                    Đã Xử Lý Xong (AI Engine)
                   </span>
-                  <span class="flex items-center gap-1">
+                  <span class="flex items-center gap-1 font-mono">
                     <span class="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse"></span> 0:28s
                   </span>
                 </div>
 
                 <!-- Video Center Mock Content -->
                 <div class="my-auto text-center relative z-20">
-                  <div id="visual-avatar" class="w-20 h-20 rounded-full mx-auto mb-4 border-2 border-white/30 bg-neutral-700 overflow-hidden flex items-center justify-center shadow-lg">
-                    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=400&q=80" alt="Creator avatar" class="w-full h-full object-cover">
+                  <div class="w-20 h-20 rounded-full mx-auto mb-4 border-2 border-white/40 bg-neutral-700 overflow-hidden flex items-center justify-center shadow-lg">
+                    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=400&q=80" alt="Sia Trương Avatar" class="w-full h-full object-cover">
                   </div>
 
-                  <!-- Dynamic Caption Area -->
-                  <div id="caption-box" class="p-2 rounded-lg bg-black/60 backdrop-blur-sm border border-white/20 transition-all">
+                  <!-- Dynamic Captions -->
+                  <div id="caption-box" class="p-2.5 rounded-xl bg-black/60 backdrop-blur-md border border-white/20 transition-all shadow">
                     <p id="caption-text" class="text-xs sm:text-sm font-bold tracking-tight text-yellow-300 leading-snug">
                       “Làm thế nào tôi tạo ra 30 video Reels trong 1 buổi chiều mà không bị kiệt sức?”
                     </p>
                   </div>
                 </div>
 
-                <!-- Bottom Controls / Engagement simulation -->
+                <!-- Sound Wave & Engagement Simulation -->
                 <div class="relative z-20 text-[11px] space-y-2">
-                  <div id="audio-wave" class="flex items-center justify-center gap-1 h-6">
-                    <span class="sound-bar w-1 bg-red-500 rounded-full"></span>
-                    <span class="sound-bar w-1 bg-red-500 rounded-full"></span>
-                    <span class="sound-bar w-1 bg-red-500 rounded-full"></span>
-                    <span class="sound-bar w-1 bg-red-500 rounded-full"></span>
-                    <span class="sound-bar w-1 bg-red-500 rounded-full"></span>
+                  <div id="audio-wave" class="flex items-center justify-center gap-1.5 h-6">
+                    <span class="sound-bar w-1 bg-tsmRed rounded-full"></span>
+                    <span class="sound-bar w-1 bg-tsmRed rounded-full"></span>
+                    <span class="sound-bar w-1 bg-tsmRed rounded-full"></span>
+                    <span class="sound-bar w-1 bg-tsmRed rounded-full"></span>
+                    <span class="sound-bar w-1 bg-tsmRed rounded-full"></span>
                   </div>
-                  <div class="flex justify-between items-center text-white/70 text-[10px]">
+                  <div class="flex justify-between items-center text-white/80 text-[10px] font-mono">
                     <span id="label-audio">🎵 Nhạc nền lo-fi thư thái</span>
                     <span>18.4K ❤️</span>
                   </div>
                 </div>
 
-                <!-- Video Overlay Glare -->
+                <!-- Dark Vignette Overlay -->
                 <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/30 pointer-events-none"></div>
               </div>
 
@@ -363,40 +428,40 @@
           <!-- Description of What Happened -->
           <div class="md:col-span-7 space-y-6">
             <div>
-              <span id="diff-tag" class="text-xs font-mono uppercase tracking-wider text-retroRed-600 font-bold block mb-1">
+              <span id="diff-tag" class="text-xs font-mono uppercase tracking-wider text-tsmRed font-bold block mb-1">
                 KẾT QUẢ SAU 2 PHÚT CHẠY ENGINE
               </span>
-              <h3 id="diff-title" class="font-serif-vintage text-2xl sm:text-3xl font-semibold text-noir-900">
-                Video đã được tự động cắt gọt, chỉnh màu, nhịp điệu và phụ đề hoàn hảo.
+              <h3 id="diff-title" class="font-serif-vintage text-2xl sm:text-3xl font-semibold text-tsmDark">
+                Video được tự động gọt dũa, chỉnh màu, nhịp điệu và phụ đề hoàn hảo.
               </h3>
             </div>
 
-            <ul id="diff-list" class="space-y-3.5 text-sm sm:text-base text-noir-700">
+            <ul id="diff-list" class="space-y-3.5 text-sm sm:text-base text-tsmDark">
               <li class="flex items-start gap-3">
-                <span class="text-retroRed-600 font-bold mt-0.5">✓</span>
-                <span><strong>Loại bỏ 100% khoảng lặng:</strong> Những đoạn ậm ừ, suy nghĩ, thở dài được AI cắt ngọt lịm không tì vết.</span>
+                <span class="text-tsmRed font-bold mt-0.5">✓</span>
+                <span><strong>Lọc 100% khoảng lặng & từ thừa:</strong> Những đoạn ậm ừ, thở dài, nói lặp được AI cắt ngọt lịm không tì vết.</span>
               </li>
               <li class="flex items-start gap-3">
-                <span class="text-retroRed-600 font-bold mt-0.5">✓</span>
-                <span><strong>Hiệu ứng Dynamic Zoom:</strong> Phóng to / thu nhỏ khung hình theo từng câu chốt đắt giá, giữ mắt người xem không thể rời màn hình.</span>
+                <span class="text-tsmRed font-bold mt-0.5">✓</span>
+                <span><strong>Hiệu ứng Dynamic Zoom:</strong> Phóng to / thu nhỏ khung hình theo từng câu nói đắt giá, giữ mắt người xem không thể rời màn hình.</span>
               </li>
               <li class="flex items-start gap-3">
-                <span class="text-retroRed-600 font-bold mt-0.5">✓</span>
-                <span><strong>Phụ đề động tự động:</strong> Highlight từ khóa vàng, tự động tạo phụ đề chính xác đến từng mili-giây.</span>
+                <span class="text-tsmRed font-bold mt-0.5">✓</span>
+                <span><strong>Phụ đề động tự động:</strong> Highlight từ khóa vàng bắt mắt, tự động tạo phụ đề chính xác đến từng mili-giây.</span>
               </li>
               <li class="flex items-start gap-3">
-                <span class="text-retroRed-600 font-bold mt-0.5">✓</span>
-                <span><strong>Nhạc nền & Âm thanh SFX:</strong> Tự động chọn nhạc hợp cảm xúc và cân bằng âm lượng thông minh để giọng bạn luôn vang rõ.</span>
+                <span class="text-tsmRed font-bold mt-0.5">✓</span>
+                <span><strong>Cân bằng âm lượng thông minh:</strong> Tự động chọn nhạc hợp cảm xúc và làm nổi bật giọng nói của bạn.</span>
               </li>
             </ul>
 
             <div class="pt-4 hairline-t flex items-center justify-between">
               <div>
-                <span class="text-xs text-neutral-500 uppercase font-mono block">Thời gian thao tác của bạn</span>
-                <span class="font-serif-vintage text-xl font-bold text-noir-900">Đúng 30 giây bấm gửi clip</span>
+                <span class="text-xs text-neutral-500 uppercase font-mono block">Thời gian thao tác</span>
+                <span class="font-serif-vintage text-xl font-bold text-tsmDark">Đúng 30 giây bấm gửi clip</span>
               </div>
-              <a href="#pricing" class="px-5 py-2.5 rounded-full bg-noir-900 text-cream-50 text-xs font-semibold hover:bg-retroRed-600 transition-colors">
-                Tôi Muốn Có Cỗ Máy Này →
+              <a href="#pricing" class="px-5 py-2.5 rounded-full bg-tsmDark text-tsmCream text-xs font-semibold hover:bg-tsmRed transition-colors">
+                Tôi Muốn Cỗ Máy Này →
               </a>
             </div>
 
@@ -409,17 +474,17 @@
   </section>
 
   <!-- HOW IT WORKS: NO CAPCUT NEEDED -->
-  <section id="how-it-works" class="py-20 sm:py-28 hairline-b bg-cream-50">
+  <section id="how-it-works" class="py-20 sm:py-28 hairline-b bg-tsmBg">
     <div class="max-w-5xl mx-auto px-4 sm:px-6">
       
-      <div class="max-w-2xl mb-16">
-        <span class="text-xs font-bold uppercase tracking-widest text-retroRed-600 block mb-2">Đơn giản hóa tối đa</span>
-        <h2 class="font-serif-vintage text-3xl sm:text-5xl text-noir-900 font-semibold mb-4 leading-tight">
+      <div class="max-w-2xl mb-16 reveal">
+        <span class="text-xs font-mono font-bold uppercase tracking-widest text-tsmRed block mb-2">Đơn giản hóa tối đa</span>
+        <h2 class="font-serif-vintage text-3xl sm:text-5xl text-tsmDark font-semibold mb-4 leading-tight">
           Không cần biết dùng CapCut. <br />
           <span class="italic font-normal">Chỉ cần nói cho AI biết bạn muốn gì.</span>
         </h2>
-        <p class="text-noir-600 text-base">
-          Bạn không cần ngồi học những phần mềm dựng phim phức tạp, không cần kéo thả từng layer mất hàng giờ. Hãy nói với AI như đang nhắn tin cho một người bạn thân hay một editor chuyên nghiệp.
+        <p class="text-tsmGray text-base">
+          Bạn không cần ngồi học những phần mềm dựng phim phức tạp. Hãy nói với cỗ máy như đang nhắn tin cho một editor chuyên nghiệp.
         </p>
       </div>
 
@@ -427,26 +492,26 @@
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
         
         <!-- Step 1 -->
-        <div class="p-6 sm:p-8 rounded-3xl bg-cream-100 hairline-all relative flex flex-col justify-between">
+        <div class="p-6 sm:p-8 rounded-3xl bg-tsmCream hairline-all relative flex flex-col justify-between hover-lift reveal">
           <div>
-            <span class="font-serif-vintage text-4xl font-bold text-retroRed-600 block mb-3">01</span>
-            <h3 class="font-bold text-xl text-noir-900 mb-2">Thả đoạn video bạn quay vào</h3>
-            <p class="text-sm text-noir-600 leading-relaxed">
-              Dù là bạn ngồi nói trước camera (talking head), quay cảnh sinh hoạt, hay quay quy trình làm việc. Video có thể lộn xộn, quay hỏng, nói vấp — không vấn đề gì cả.
+            <span class="font-serif-vintage text-4xl font-bold text-tsmRed block mb-3">01</span>
+            <h3 class="font-bold text-xl text-tsmDark mb-2">Thả đoạn video bạn quay vào</h3>
+            <p class="text-sm text-tsmGray leading-relaxed">
+              Dù là video ngồi nói trước camera, quay cảnh sinh hoạt hay làm việc. Có thể quay hỏng, nói vấp, quay nhiều góc — cỗ máy sẽ tự xử lý.
             </p>
           </div>
           <div class="mt-8 pt-4 hairline-t font-mono text-[11px] text-neutral-500 uppercase">
-            Đầu vào: File .MP4 / .MOV thô từ điện thoại
+            Đầu vào: File .MP4 / .MOV từ điện thoại
           </div>
         </div>
 
         <!-- Step 2 -->
-        <div class="p-6 sm:p-8 rounded-3xl bg-cream-100 hairline-all relative flex flex-col justify-between">
+        <div class="p-6 sm:p-8 rounded-3xl bg-tsmCream hairline-all relative flex flex-col justify-between hover-lift reveal">
           <div>
-            <span class="font-serif-vintage text-4xl font-bold text-retroRed-600 block mb-3">02</span>
-            <h3 class="font-bold text-xl text-noir-900 mb-2">Nhắn câu bạn muốn</h3>
-            <p class="text-sm text-noir-600 leading-relaxed">
-              Ví dụ: <em>“Cắt cho tôi đoạn hay nhất, thêm phong cách Editorial, nhạc nhẹ nhàng và xuất phụ đề tiếng Việt nhé.”</em> Cỗ máy sẽ lập tức phân tích và thực thi.
+            <span class="font-serif-vintage text-4xl font-bold text-tsmRed block mb-3">02</span>
+            <h3 class="font-bold text-xl text-tsmDark mb-2">Gõ câu bạn muốn bằng tiếng Việt</h3>
+            <p class="text-sm text-tsmGray leading-relaxed">
+              Ví dụ: <em>“Cắt cho tôi đoạn hay nhất, thêm phong cách Editorial, nhạc thư thái và xuất phụ đề tiếng Việt nhé.”</em> Cỗ máy sẽ lập tức phân tích và thực thi.
             </p>
           </div>
           <div class="mt-8 pt-4 hairline-t font-mono text-[11px] text-neutral-500 uppercase">
@@ -455,12 +520,12 @@
         </div>
 
         <!-- Step 3 -->
-        <div class="p-6 sm:p-8 rounded-3xl bg-noir-900 text-cream-50 hairline-all relative flex flex-col justify-between shadow-lg">
+        <div class="p-6 sm:p-8 rounded-3xl bg-tsmDark text-tsmCream hairline-all relative flex flex-col justify-between shadow-xl hover-lift reveal">
           <div>
-            <span class="font-serif-vintage text-4xl font-bold text-retroRed-500 block mb-3">03</span>
+            <span class="font-serif-vintage text-4xl font-bold text-red-400 block mb-3">03</span>
             <h3 class="font-bold text-xl text-white mb-2">Nhận video hoàn chỉnh</h3>
             <p class="text-sm text-neutral-300 leading-relaxed">
-              Bạn nhận được ngay file video sắc nét chất lượng cao, đúng phong cách thương hiệu của bạn để đăng ngay lập tức. Hoặc có thể mở lại trong CapCut nếu muốn tự tay chỉnh sửa thêm chi tiết.
+              Nhận ngay file video chất lượng cao sẵn sàng đăng tải lên Reels, TikTok, Shorts. Hoặc mở trực tiếp trên CapCut nếu muốn tinh chỉnh thêm chi tiết.
             </p>
           </div>
           <div class="mt-8 pt-4 border-t border-neutral-700 font-mono text-[11px] text-neutral-400 uppercase">
@@ -474,66 +539,66 @@
   </section>
 
   <!-- FILM ONCE, POST SIX WAYS -->
-  <section class="py-20 sm:py-28 hairline-b bg-cream-100">
+  <section class="py-20 sm:py-28 hairline-b bg-tsmWheat/50">
     <div class="max-w-5xl mx-auto px-4 sm:px-6">
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
         
-        <div class="lg:col-span-6 space-y-6">
-          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cream-200 hairline-all text-xs font-mono font-bold uppercase tracking-wider text-retroRed-600">
-            Tính Năng Bonus Đặc Biệt
+        <div class="lg:col-span-6 space-y-6 reveal">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-tsmCream hairline-all text-xs font-mono font-bold uppercase tracking-wider text-tsmRed">
+            Tính Năng Nhân Bản Nội Dung
           </div>
-          <h2 class="font-serif-vintage text-3xl sm:text-5xl text-noir-900 font-semibold leading-tight">
+          <h2 class="font-serif-vintage text-3xl sm:text-5xl text-tsmDark font-semibold leading-tight">
             Quay một lần duy nhất. <br />
             <span class="italic font-normal">Xuất bản 6 định dạng khác nhau.</span>
           </h2>
-          <p class="text-noir-700 text-sm sm:text-base leading-relaxed">
-            Đừng lãng phí công sức quay video. Với mỗi clip bạn đưa vào, cỗ máy không chỉ tạo ra 1 video Reels, mà tự động phân rã và tạo nên cả một chiến dịch nội dung tuần hoàn:
+          <p class="text-tsmDark text-sm sm:text-base leading-relaxed">
+            Đừng lãng phí công sức quay video. Với mỗi clip bạn đưa vào, cỗ máy tự động phân rã và tạo nên cả một chiến dịch nội dung tuần hoàn:
           </p>
 
-          <div class="space-y-3 font-medium text-sm sm:text-base text-noir-800">
-            <div class="p-3.5 rounded-xl bg-cream-50 hairline-all flex items-center justify-between">
+          <div class="space-y-3 font-medium text-sm sm:text-base text-tsmDark">
+            <div class="p-3.5 rounded-xl bg-tsmCream hairline-all flex items-center justify-between shadow-sm">
               <span>1. Video Reels / TikTok chuẩn nhịp điệu (Full Cut)</span>
-              <span class="text-xs font-mono text-retroRed-600 font-bold">1 Video</span>
+              <span class="text-xs font-mono text-tsmRed font-bold">1 Video</span>
             </div>
-            <div class="p-3.5 rounded-xl bg-cream-50 hairline-all flex items-center justify-between">
+            <div class="p-3.5 rounded-xl bg-tsmCream hairline-all flex items-center justify-between shadow-sm">
               <span>2. Bộ ảnh Carousel 5–8 slide tóm tắt ý chính bài nói</span>
-              <span class="text-xs font-mono text-retroRed-600 font-bold">1 Bộ Carousel</span>
+              <span class="text-xs font-mono text-tsmRed font-bold">1 Bộ Carousel</span>
             </div>
-            <div class="p-3.5 rounded-xl bg-cream-50 hairline-all flex items-center justify-between">
+            <div class="p-3.5 rounded-xl bg-tsmCream hairline-all flex items-center justify-between shadow-sm">
               <span>3. Chuỗi Story kích thích khảo sát, hỏi đáp</span>
-              <span class="text-xs font-mono text-retroRed-600 font-bold">3 Story</span>
+              <span class="text-xs font-mono text-tsmRed font-bold">3 Story</span>
             </div>
-            <div class="p-3.5 rounded-xl bg-cream-50 hairline-all flex items-center justify-between">
+            <div class="p-3.5 rounded-xl bg-tsmCream hairline-all flex items-center justify-between shadow-sm">
               <span>4. Ba biến thể Hook mở đầu khác nhau để A/B Testing</span>
-              <span class="text-xs font-mono text-retroRed-600 font-bold">3 Phiên bản</span>
+              <span class="text-xs font-mono text-tsmRed font-bold">3 Phiên bản</span>
             </div>
           </div>
         </div>
 
-        <div class="lg:col-span-6">
-          <div class="p-6 sm:p-8 rounded-3xl bg-cream-50 hairline-all shadow-md relative overflow-hidden">
+        <div class="lg:col-span-6 reveal">
+          <div class="p-6 sm:p-8 rounded-3xl bg-tsmCream hairline-all shadow-xl relative overflow-hidden">
             <div class="text-xs font-mono uppercase tracking-wider text-neutral-500 mb-4 pb-3 hairline-b">
-              Hệ thống nhân bản nội dung tự động
+              Hệ thống nhân bản nội dung tự động của Sia Trương
             </div>
             <div class="grid grid-cols-2 gap-4">
-              <div class="p-4 rounded-2xl bg-cream-100 hairline-all text-center">
+              <div class="p-4 rounded-2xl bg-tsmWheat/60 hairline-all text-center hover-lift">
                 <span class="text-3xl mb-2 block">📱</span>
-                <span class="font-bold text-xs uppercase block text-noir-900">Reels / Shorts</span>
+                <span class="font-bold text-xs uppercase block text-tsmDark">Reels / Shorts</span>
                 <span class="text-[11px] text-neutral-500">Giữ chân người xem</span>
               </div>
-              <div class="p-4 rounded-2xl bg-cream-100 hairline-all text-center">
+              <div class="p-4 rounded-2xl bg-tsmWheat/60 hairline-all text-center hover-lift">
                 <span class="text-3xl mb-2 block">📑</span>
-                <span class="font-bold text-xs uppercase block text-noir-900">Carousel Slide</span>
+                <span class="font-bold text-xs uppercase block text-tsmDark">Carousel Slide</span>
                 <span class="text-[11px] text-neutral-500">Tăng lượt lưu bài</span>
               </div>
-              <div class="p-4 rounded-2xl bg-cream-100 hairline-all text-center">
+              <div class="p-4 rounded-2xl bg-tsmWheat/60 hairline-all text-center hover-lift">
                 <span class="text-3xl mb-2 block">💬</span>
-                <span class="font-bold text-xs uppercase block text-noir-900">Stories Tương Tác</span>
+                <span class="font-bold text-xs uppercase block text-tsmDark">Stories Tương Tác</span>
                 <span class="text-[11px] text-neutral-500">Tăng tỷ lệ phản hồi</span>
               </div>
-              <div class="p-4 rounded-2xl bg-cream-100 hairline-all text-center">
+              <div class="p-4 rounded-2xl bg-tsmWheat/60 hairline-all text-center hover-lift">
                 <span class="text-3xl mb-2 block">🎯</span>
-                <span class="font-bold text-xs uppercase block text-noir-900">Hook A/B Test</span>
+                <span class="font-bold text-xs uppercase block text-tsmDark">Hook A/B Test</span>
                 <span class="text-[11px] text-neutral-500">Tìm video viral nhất</span>
               </div>
             </div>
@@ -548,17 +613,17 @@
   </section>
 
   <!-- STYLE PACKS SHOWCASE -->
-  <section id="styles" class="py-20 sm:py-28 hairline-b bg-cream-50">
+  <section id="styles" class="py-20 sm:py-28 hairline-b bg-tsmBg">
     <div class="max-w-5xl mx-auto px-4 sm:px-6">
       
-      <div class="text-center max-w-2xl mx-auto mb-16">
-        <span class="text-xs font-bold uppercase tracking-widest text-retroRed-600 block mb-2">Thẩm mỹ & Nhận diện</span>
-        <h2 class="font-serif-vintage text-3xl sm:text-5xl text-noir-900 font-semibold mb-4">
+      <div class="text-center max-w-2xl mx-auto mb-16 reveal">
+        <span class="text-xs font-mono font-bold uppercase tracking-widest text-tsmRed block mb-2">Thẩm mỹ & Nhận diện</span>
+        <h2 class="font-serif-vintage text-3xl sm:text-5xl text-tsmDark font-semibold mb-4">
           Bộ 3 Phong Cách Chuẩn. <br />
           <span class="italic font-normal">Hoặc tự tạo phong cách riêng của bạn.</span>
         </h2>
-        <p class="text-noir-600 text-sm sm:text-base">
-          Video của bạn không bao giờ bị đụng hàng hay trông như mẫu template hàng loạt. Hãy chọn phong cách đại diện cho thương hiệu của bạn.
+        <p class="text-tsmGray text-sm sm:text-base">
+          Video của bạn không bao giờ bị đụng hàng hay trông như mẫu template đại trà. Hãy chọn phong cách đại diện cho thương hiệu của bạn.
         </p>
       </div>
 
@@ -566,52 +631,52 @@
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
         
         <!-- Style 1: Editorial -->
-        <div class="p-6 sm:p-8 rounded-3xl bg-cream-100 hairline-all flex flex-col justify-between hover:shadow-lg transition-shadow">
+        <div class="p-6 sm:p-8 rounded-3xl bg-tsmCream hairline-all flex flex-col justify-between hover-lift reveal">
           <div>
-            <div class="w-10 h-10 rounded-full bg-noir-900 text-white flex items-center justify-center font-serif-vintage text-xl font-bold mb-4">
+            <div class="w-11 h-11 rounded-full bg-tsmDark text-white flex items-center justify-center font-serif-vintage text-2xl font-bold mb-4 shadow">
               E
             </div>
-            <h3 class="font-serif-vintage text-2xl font-bold text-noir-900 mb-1">Editorial</h3>
+            <h3 class="font-serif-vintage text-2xl font-bold text-tsmDark mb-1">Editorial</h3>
             <span class="text-xs font-mono uppercase tracking-wider text-neutral-500 block mb-4">Sang Trọng & Tinh Tế</span>
-            <p class="text-sm text-noir-600 leading-relaxed mb-6">
+            <p class="text-sm text-tsmGray leading-relaxed mb-6">
               Dành cho chuyên gia, huấn luyện viên, doanh nhân, thương hiệu cao cấp. Phông chữ thanh lịch, nhịp cắt sâu sắc, màu sắc ấm áp và đẳng cấp.
             </p>
           </div>
-          <div class="p-3 rounded-xl bg-white hairline-all text-xs font-serif-vintage italic text-noir-800 text-center">
+          <div class="p-3 rounded-xl bg-white hairline-all text-xs font-serif-vintage italic text-tsmDark text-center">
             "Sự tối giản chính là đỉnh cao của sự tinh tế."
           </div>
         </div>
 
         <!-- Style 2: Playful -->
-        <div class="p-6 sm:p-8 rounded-3xl bg-cream-100 hairline-all flex flex-col justify-between hover:shadow-lg transition-shadow">
+        <div class="p-6 sm:p-8 rounded-3xl bg-tsmCream hairline-all flex flex-col justify-between hover-lift reveal">
           <div>
-            <div class="w-10 h-10 rounded-full bg-retroRed-600 text-white flex items-center justify-center font-serif-vintage text-xl font-bold mb-4">
+            <div class="w-11 h-11 rounded-full bg-tsmRed text-white flex items-center justify-center font-serif-vintage text-2xl font-bold mb-4 shadow">
               P
             </div>
-            <h3 class="font-serif-vintage text-2xl font-bold text-noir-900 mb-1">Playful</h3>
-            <span class="text-xs font-mono uppercase tracking-wider text-retroRed-600 block mb-4">Năng Động & Viral</span>
-            <p class="text-sm text-noir-600 leading-relaxed mb-6">
-              Dành cho các nhà sáng tạo nội dung lifestyle, mẹ bỉm, review sản phẩm, thương hiệu giới trẻ. Hiệu ứng pop-up sống động, màu sắc vui tươi, nhịp điệu cuốn hút.
+            <h3 class="font-serif-vintage text-2xl font-bold text-tsmDark mb-1">Playful</h3>
+            <span class="text-xs font-mono uppercase tracking-wider text-tsmRed block mb-4">Năng Động & Viral</span>
+            <p class="text-sm text-tsmGray leading-relaxed mb-6">
+              Dành cho nhà sáng tạo phong cách sống, mẹ bỉm, review sản phẩm, thương hiệu giới trẻ. Hiệu ứng pop-up sống động, màu sắc vui tươi.
             </p>
           </div>
-          <div class="p-3 rounded-xl bg-white hairline-all text-xs font-sans font-bold text-retroRed-600 text-center">
+          <div class="p-3 rounded-xl bg-white hairline-all text-xs font-sans font-bold text-tsmRed text-center">
             "Bùng nổ năng lượng trong từng giây đầu tiên!"
           </div>
         </div>
 
         <!-- Style 3: Butter -->
-        <div class="p-6 sm:p-8 rounded-3xl bg-cream-100 hairline-all flex flex-col justify-between hover:shadow-lg transition-shadow">
+        <div class="p-6 sm:p-8 rounded-3xl bg-tsmCream hairline-all flex flex-col justify-between hover-lift reveal">
           <div>
-            <div class="w-10 h-10 rounded-full bg-amber-600 text-white flex items-center justify-center font-serif-vintage text-xl font-bold mb-4">
+            <div class="w-11 h-11 rounded-full bg-amber-600 text-white flex items-center justify-center font-serif-vintage text-2xl font-bold mb-4 shadow">
               B
             </div>
-            <h3 class="font-serif-vintage text-2xl font-bold text-noir-900 mb-1">Butter</h3>
+            <h3 class="font-serif-vintage text-2xl font-bold text-tsmDark mb-1">Butter</h3>
             <span class="text-xs font-mono uppercase tracking-wider text-amber-700 block mb-4">Mượt Mà & Thư Thái</span>
-            <p class="text-sm text-noir-600 leading-relaxed mb-6">
+            <p class="text-sm text-tsmGray leading-relaxed mb-6">
               Dành cho vlogger, kể chuyện, podcast, nội dung chữa lành. Chuyển cảnh êm ái như bơ chảy, âm thanh ấm áp, tạo cảm giác thân mật và dễ chịu tối đa.
             </p>
           </div>
-          <div class="p-3 rounded-xl bg-white hairline-all text-xs font-sans font-medium text-noir-700 text-center">
+          <div class="p-3 rounded-xl bg-white hairline-all text-xs font-sans font-medium text-tsmDark text-center">
             "Êm dịu, cuốn hút và giữ chân người xem tự nhiên."
           </div>
         </div>
@@ -619,19 +684,19 @@
       </div>
 
       <!-- Custom Brand Kit Box -->
-      <div class="p-6 sm:p-8 rounded-3xl bg-noir-900 text-cream-100 hairline-all flex flex-col md:flex-row items-center justify-between gap-6">
+      <div class="p-6 sm:p-8 rounded-3xl bg-tsmDark text-tsmCream hairline-all flex flex-col md:flex-row items-center justify-between gap-6 shadow-xl reveal">
         <div class="space-y-2">
           <div class="inline-flex items-center gap-2 px-2.5 py-0.5 rounded bg-red-900/60 text-red-300 text-xs font-mono font-bold uppercase">
-            Tính Năng Tùy Biến Độc Bản
+            Độc Quyền Tùy Biến
           </div>
           <h3 class="font-serif-vintage text-2xl sm:text-3xl font-bold text-white">
-            Bộ The Brand Kit Cá Nhân Của Bạn
+            Bộ The Brand Kit Của Riêng Bạn
           </h3>
           <p class="text-sm text-neutral-300 max-w-xl">
-            Cung cấp mã màu thương hiệu, tải font chữ bạn yêu thích, đặt logo của bạn. Cỗ máy ghi nhớ và áp dụng cho mọi video bạn sản xuất về sau.
+            Cung cấp mã màu thương hiệu, tải font chữ bạn thích, đặt logo của bạn. Cỗ máy ghi nhớ và áp dụng cho mọi video bạn sản xuất về sau.
           </p>
         </div>
-        <a href="#pricing" class="px-6 py-3 rounded-full bg-retroRed-600 text-white font-semibold text-xs sm:text-sm hover:bg-retroRed-700 transition-colors whitespace-nowrap">
+        <a href="#pricing" class="px-6 py-3 rounded-full bg-tsmRed text-white font-semibold text-xs sm:text-sm hover:bg-tsmRedDark transition-colors whitespace-nowrap shadow-lg">
           Nhận Brand Kit Đi Kèm →
         </a>
       </div>
@@ -639,17 +704,17 @@
     </div>
   </section>
 
-  <!-- ECONOMIC VALUE COMPARISON (Hiring Editor vs SIA TRUONG ENGINE) -->
-  <section class="py-20 sm:py-28 hairline-b bg-cream-100">
+  <!-- ECONOMIC VALUE COMPARISON (Hiring Editor vs SIA TRƯƠNG ENGINE) -->
+  <section class="py-20 sm:py-28 hairline-b bg-tsmWheat/50">
     <div class="max-w-5xl mx-auto px-4 sm:px-6">
       
-      <div class="text-center max-w-2xl mx-auto mb-16">
-        <span class="text-xs font-bold uppercase tracking-widest text-retroRed-600 block mb-2">Bài toán đầu tư</span>
-        <h2 class="font-serif-vintage text-3xl sm:text-5xl text-noir-900 font-semibold mb-4">
+      <div class="text-center max-w-2xl mx-auto mb-16 reveal">
+        <span class="text-xs font-mono font-bold uppercase tracking-widest text-tsmRed block mb-2">Bài toán đầu tư</span>
+        <h2 class="font-serif-vintage text-3xl sm:text-5xl text-tsmDark font-semibold mb-4">
           Chỉ cần dùng 2 video, <br />
           <span class="italic font-normal">bạn đã thu hồi vốn hoàn toàn.</span>
         </h2>
-        <p class="text-noir-600 text-sm sm:text-base">
+        <p class="text-tsmGray text-sm sm:text-base">
           Hãy nhìn vào con số thực tế để thấy tại sao hệ thống này là khoản đầu tư thông minh nhất cho kênh của bạn trong năm nay.
         </p>
       </div>
@@ -657,19 +722,19 @@
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
         
         <!-- Option A: Traditional Editor -->
-        <div class="p-6 sm:p-8 rounded-3xl bg-cream-50 hairline-all relative">
+        <div class="p-6 sm:p-8 rounded-3xl bg-tsmCream hairline-all relative hover-lift reveal">
           <div class="flex justify-between items-start mb-6">
             <div>
               <span class="text-xs font-mono uppercase tracking-wider text-neutral-500 font-bold block mb-1">Cách truyền thống</span>
-              <h3 class="text-xl font-bold text-noir-900">Thuê Editor Ngoài</h3>
+              <h3 class="text-xl font-bold text-tsmDark">Thuê Editor Ngoài</h3>
             </div>
             <span class="text-2xl">💸</span>
           </div>
           <div class="mb-6">
-            <span class="font-serif-vintage text-3xl sm:text-4xl font-bold text-noir-900">500.000đ - 1.500.000đ</span>
+            <span class="font-serif-vintage text-3xl sm:text-4xl font-bold text-tsmDark">500.000đ - 1.500.000đ</span>
             <span class="text-xs text-neutral-500 block mt-1">chi phí trung bình cho mỗi video đơn lẻ</span>
           </div>
-          <ul class="space-y-3 text-sm text-noir-600 mb-8">
+          <ul class="space-y-3 text-sm text-tsmGray mb-8">
             <li class="flex items-center gap-2">
               <span class="text-red-500">✕</span> Tốn 10.000.000đ - 20.000.000đ mỗi tháng
             </li>
@@ -677,26 +742,26 @@
               <span class="text-red-500">✕</span> Chờ đợi 2-4 ngày mới nhận được bản thảo
             </li>
             <li class="flex items-center gap-2">
-              <span class="text-red-500">✕</span> Phải giải thích qua lại nhiều lần vì không đúng gu
+              <span class="text-red-500">✕</span> Phải sửa đi sửa lại nhiều lần vì không đúng ý
             </li>
             <li class="flex items-center gap-2">
               <span class="text-red-500">✕</span> Tuần sau quay clip mới lại nhận hóa đơn mới
             </li>
           </ul>
-          <div class="text-xs text-neutral-500 italic p-3 rounded-xl bg-cream-100 hairline-all">
+          <div class="text-xs text-neutral-500 italic p-3 rounded-xl bg-tsmWheat/60 hairline-all">
             Chi phí lặp đi lặp lại mãi mãi và không có tài sản tích lũy.
           </div>
         </div>
 
-        <!-- Option B: Sia Truong Engine -->
-        <div class="p-6 sm:p-8 rounded-3xl bg-noir-900 text-cream-50 hairline-all relative shadow-xl border-2 border-retroRed-600">
-          <div class="absolute -top-3.5 right-6 px-3 py-1 rounded-full bg-retroRed-600 text-white font-mono text-[10px] uppercase font-bold tracking-wider">
+        <!-- Option B: Sia Trương Engine -->
+        <div class="p-6 sm:p-8 rounded-3xl bg-tsmDark text-tsmCream hairline-all relative shadow-2xl border-2 border-tsmRed hover-lift reveal">
+          <div class="absolute -top-3.5 right-6 px-3 py-1 rounded-full bg-tsmRed text-white font-mono text-[10px] uppercase font-bold tracking-wider shadow">
             Lựa chọn thông minh nhất
           </div>
           <div class="flex justify-between items-start mb-6">
             <div>
               <span class="text-xs font-mono uppercase tracking-wider text-red-300 font-bold block mb-1">Giải pháp tự động</span>
-              <h3 class="text-xl font-bold text-white">Sia Trường Reels Engine</h3>
+              <h3 class="text-xl font-bold text-white">Sia Trương Reels Engine</h3>
             </div>
             <span class="text-2xl">⚡</span>
           </div>
@@ -718,7 +783,7 @@
               <span class="text-green-400 font-bold">✓</span> Nhận toàn bộ cập nhật tính năng mới trọn đời
             </li>
           </ul>
-          <a href="#pricing" class="block w-full py-3.5 rounded-full bg-retroRed-600 text-white text-center font-bold text-sm hover:bg-retroRed-700 transition-colors shadow">
+          <a href="#pricing" class="block w-full py-3.5 rounded-full bg-tsmRed text-white text-center font-bold text-sm hover:bg-tsmRedDark transition-colors shadow-lg">
             Khóa Ngay Ưu Đãi 1.990.000đ →
           </a>
         </div>
@@ -729,15 +794,15 @@
   </section>
 
   <!-- TESTIMONIALS & FEEDBACK -->
-  <section class="py-20 sm:py-28 hairline-b bg-cream-50">
+  <section class="py-20 sm:py-28 hairline-b bg-tsmBg">
     <div class="max-w-5xl mx-auto px-4 sm:px-6">
       
-      <div class="text-center max-w-2xl mx-auto mb-16">
-        <span class="text-xs font-bold uppercase tracking-widest text-retroRed-600 block mb-2">Đánh giá thực tế</span>
-        <h2 class="font-serif-vintage text-3xl sm:text-5xl text-noir-900 font-semibold mb-4">
+      <div class="text-center max-w-2xl mx-auto mb-16 reveal">
+        <span class="text-xs font-mono font-bold uppercase tracking-widest text-tsmRed block mb-2">Đánh giá thực tế</span>
+        <h2 class="font-serif-vintage text-3xl sm:text-5xl text-tsmDark font-semibold mb-4">
           Những người đã dùng nói gì?
         </h2>
-        <p class="text-noir-600 text-sm sm:text-base">
+        <p class="text-tsmGray text-sm sm:text-base">
           Những tin nhắn thật từ các nhà sáng tạo nội dung, mẹ bỉm khởi nghiệp và chủ kinh doanh sau khi áp dụng cỗ máy vào thực tế.
         </p>
       </div>
@@ -745,11 +810,11 @@
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
         
         <!-- Review 1 -->
-        <div class="p-6 rounded-3xl bg-cream-100 hairline-all flex flex-col justify-between">
+        <div class="p-6 rounded-3xl bg-tsmCream hairline-all flex flex-col justify-between hover-lift reveal">
           <div>
             <div class="flex items-center gap-1 text-amber-500 text-sm mb-4">★★★★★</div>
-            <p class="text-sm text-noir-800 leading-relaxed italic mb-6">
-              “Trước đây mỗi lần nghĩ đến việc quay video là mình ám ảnh vì khâu cắt ghép trên CapCut mất nửa ngày trời. Giờ chỉ cần quẳng clip thô vào, ngồi uống cốc cafe là có video mướt rượt sẵn sàng đăng. Đúng là vị cứu tinh!”
+            <p class="text-sm text-tsmDark leading-relaxed italic mb-6">
+              “Trước đây mỗi lần nghĩ đến việc quay video là mình ám ảnh vì khâu cắt ghép trên CapCut mất nửa ngày trời. Giờ chỉ cần quẳng clip thô vào, ngồi uống cốc cafe là có video mướt rượt sẵn sàng đăng. Đúng là vị cứu tinh của mình!”
             </p>
           </div>
           <div class="pt-4 hairline-t flex items-center gap-3">
@@ -757,17 +822,17 @@
               NL
             </div>
             <div>
-              <span class="font-bold text-xs text-noir-900 block">Ngọc Linh</span>
-              <span class="text-[11px] text-neutral-500">Mẹ bỉm kinh doanh đồ gia dụng</span>
+              <span class="font-bold text-xs text-tsmDark block">Ngọc Linh</span>
+              <span class="text-[11px] text-neutral-500">Mẹ bỉm kinh doanh online</span>
             </div>
           </div>
         </div>
 
         <!-- Review 2 -->
-        <div class="p-6 rounded-3xl bg-cream-100 hairline-all flex flex-col justify-between">
+        <div class="p-6 rounded-3xl bg-tsmCream hairline-all flex flex-col justify-between hover-lift reveal">
           <div>
             <div class="flex items-center gap-1 text-amber-500 text-sm mb-4">★★★★★</div>
-            <p class="text-sm text-noir-800 leading-relaxed italic mb-6">
+            <p class="text-sm text-tsmDark leading-relaxed italic mb-6">
               “Bộ font Editorial đẹp ngỡ ngàng. Khách hàng xem video ai cũng khen phong cách sang và chuyên nghiệp như đài truyền hình. Tự tin xây dựng thương hiệu cá nhân hẳn luôn.”
             </p>
           </div>
@@ -776,17 +841,17 @@
               TH
             </div>
             <div>
-              <span class="font-bold text-xs text-noir-900 block">Tuấn Hưng</span>
+              <span class="font-bold text-xs text-tsmDark block">Tuấn Hưng</span>
               <span class="text-[11px] text-neutral-500">Huấn luyện viên đầu tư & tài chính</span>
             </div>
           </div>
         </div>
 
         <!-- Review 3 -->
-        <div class="p-6 rounded-3xl bg-cream-100 hairline-all flex flex-col justify-between">
+        <div class="p-6 rounded-3xl bg-tsmCream hairline-all flex flex-col justify-between hover-lift reveal">
           <div>
             <div class="flex items-center gap-1 text-amber-500 text-sm mb-4">★★★★★</div>
-            <p class="text-sm text-noir-800 leading-relaxed italic mb-6">
+            <p class="text-sm text-tsmDark leading-relaxed italic mb-6">
               “Khoản đầu tư hời nhất năm nay của tôi. Tháng trước tôi vừa cắt giảm được 8 triệu tiền thuê editor bên ngoài mà lượng video đăng TikTok lại tăng gấp ba.”
             </p>
           </div>
@@ -795,7 +860,7 @@
               MD
             </div>
             <div>
-              <span class="font-bold text-xs text-noir-900 block">Minh Đức</span>
+              <span class="font-bold text-xs text-tsmDark block">Minh Đức</span>
               <span class="text-[11px] text-neutral-500">Chủ thương hiệu thời trang thiết kế</span>
             </div>
           </div>
@@ -806,21 +871,21 @@
     </div>
   </section>
 
-  <!-- FOUNDER STORY / ABOUT -->
-  <section class="py-20 sm:py-28 hairline-b bg-cream-100">
+  <!-- FOUNDER STORY / ABOUT SIA TRƯƠNG -->
+  <section class="py-20 sm:py-28 hairline-b bg-tsmWheat/50">
     <div class="max-w-4xl mx-auto px-4 sm:px-6">
-      <div class="p-8 sm:p-12 rounded-3xl bg-cream-50 hairline-all shadow-sm">
+      <div class="p-8 sm:p-12 rounded-3xl bg-tsmCream hairline-all shadow-md reveal">
         
-        <span class="text-xs font-mono uppercase tracking-wider text-retroRed-600 font-bold block mb-2">
+        <span class="text-xs font-mono uppercase tracking-wider text-tsmRed font-bold block mb-2">
           Câu chuyện người xây dựng
         </span>
-        <h2 class="font-serif-vintage text-3xl sm:text-4xl text-noir-900 font-semibold mb-6">
-          Tôi tạo ra cỗ máy này để giải cứu chính mình trước tiên.
+        <h2 class="font-serif-vintage text-3xl sm:text-4xl text-tsmDark font-semibold mb-6">
+          Tôi tạo ra cỗ máy này để giải phóng chính mình trước tiên.
         </h2>
 
-        <div class="space-y-4 text-noir-700 text-sm sm:text-base leading-relaxed">
+        <div class="space-y-4 text-tsmDark text-sm sm:text-base leading-relaxed">
           <p>
-            Chào bạn, tôi là <strong>Sia Trường</strong>.
+            Chào bạn, tôi là <strong>Sia Trương</strong>.
           </p>
           <p>
             Khi bắt đầu xây dựng kênh và sáng tạo nội dung, tôi rơi vào một cái bẫy quen thuộc: <em>dành 80% thời gian cho những công việc nhàm chán lặp đi lặp lại</em> — bấm nút cắt từng giây khoảng lặng, canh chỉnh vị trí phụ đề, tìm nhạc nền, rồi xuất file sửa tới sửa lui.
@@ -835,7 +900,7 @@
 
         <div class="mt-8 pt-6 hairline-t flex items-center justify-between">
           <div>
-            <span class="font-serif-vintage text-2xl font-bold text-noir-900 block">Sia Trường</span>
+            <span class="font-serif-vintage text-2xl font-bold text-tsmDark block">Sia Trương</span>
             <span class="text-xs text-neutral-500 font-mono">Người sáng lập siatruong.com</span>
           </div>
           <div class="text-2xl">✨</div>
@@ -846,31 +911,31 @@
   </section>
 
   <!-- PRICING & OFFER SECTION -->
-  <section id="pricing" class="py-20 sm:py-28 hairline-b bg-cream-50 relative">
+  <section id="pricing" class="py-20 sm:py-28 hairline-b bg-tsmBg relative">
     <div class="max-w-4xl mx-auto px-4 sm:px-6">
       
-      <div class="text-center max-w-xl mx-auto mb-12">
-        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-red-100 text-retroRed-600 text-xs font-bold uppercase tracking-wider mb-4">
-          Ưu đãi cuối cùng đợt này
+      <div class="text-center max-w-xl mx-auto mb-12 reveal">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-red-100 text-tsmRed text-xs font-bold uppercase tracking-wider mb-4">
+          Ưu đãi đợt trải nghiệm
         </div>
-        <h2 class="font-serif-vintage text-4xl sm:text-6xl text-noir-900 font-semibold mb-4">
+        <h2 class="font-serif-vintage text-4xl sm:text-6xl text-tsmDark font-semibold mb-4 leading-tight">
           Sở hữu trọn đời. <br />
           <span class="italic font-normal">Mọi bản cập nhật miễn phí.</span>
         </h2>
-        <p class="text-noir-600 text-sm sm:text-base">
+        <p class="text-tsmGray text-sm sm:text-base">
           Đây là đợt giá ưu đãi dành cho những người tiên phong. Khi mở lại lần tới, mức giá sẽ tăng lên theo lộ trình. Khóa ngay mức giá tốt nhất hôm nay.
         </p>
       </div>
 
       <!-- Main Pricing Card -->
-      <div class="rounded-3xl bg-cream-100 hairline-all p-6 sm:p-10 shadow-2xl relative overflow-hidden border-2 border-noir-900">
+      <div class="rounded-3xl bg-tsmCream hairline-all p-6 sm:p-10 shadow-2xl relative overflow-hidden border-2 border-tsmDark reveal">
         
         <div class="flex flex-col md:flex-row md:items-center justify-between gap-6 pb-8 hairline-b">
           <div>
-            <span class="text-xs font-mono uppercase tracking-widest text-retroRed-600 font-bold block mb-1">
+            <span class="text-xs font-mono uppercase tracking-widest text-tsmRed font-bold block mb-1">
               GÓI SỞ HỮU TRỌN ĐỜI (LIFETIME ACCESS)
             </span>
-            <h3 class="font-serif-vintage text-3xl font-bold text-noir-900">
+            <h3 class="font-serif-vintage text-3xl font-bold text-tsmDark">
               The Reels Editing Engine
             </h3>
             <p class="text-xs sm:text-sm text-neutral-500 mt-1">
@@ -881,7 +946,7 @@
           <div class="text-left md:text-right">
             <div class="text-sm line-through text-neutral-400 font-medium">4.500.000đ ($180)</div>
             <div class="flex items-baseline md:justify-end gap-1">
-              <span class="font-serif-vintage text-4xl sm:text-5xl font-bold text-retroRed-600">1.990.000đ</span>
+              <span class="font-serif-vintage text-4xl sm:text-5xl font-bold text-tsmRed">1.990.000đ</span>
               <span class="text-xs text-neutral-500 font-mono">/ $79 USD</span>
             </div>
             <span class="text-[11px] text-green-700 bg-green-100 px-2 py-0.5 rounded font-semibold inline-block mt-1">
@@ -891,44 +956,44 @@
         </div>
 
         <!-- Features Checklist -->
-        <div class="py-8 grid grid-cols-1 md:grid-cols-2 gap-4 text-sm text-noir-800">
+        <div class="py-8 grid grid-cols-1 md:grid-cols-2 gap-4 text-sm text-tsmDark">
           <div class="flex items-start gap-3">
-            <span class="text-retroRed-600 font-bold">✓</span>
+            <span class="text-tsmRed font-bold">✓</span>
             <span><strong>Toàn bộ mã nguồn & Engine:</strong> Cài đặt chạy mượt mà trên macOS & Windows 10/11.</span>
           </div>
           <div class="flex items-start gap-3">
-            <span class="text-retroRed-600 font-bold">✓</span>
-            <span><strong>Khóa học video hướng dẫn A-Z:</strong> Từng bước bằng tiếng Việt, người không rành công nghệ cũng làm được.</span>
+            <span class="text-tsmRed font-bold">✓</span>
+            <span><strong>Khóa học video hướng dẫn A-Z:</strong> Từng bước bằng tiếng Việt của Sia Trương.</span>
           </div>
           <div class="flex items-start gap-3">
-            <span class="text-retroRed-600 font-bold">✓</span>
+            <span class="text-tsmRed font-bold">✓</span>
             <span><strong>Bộ 3 Style Packs độc quyền:</strong> Editorial, Playful và Butter sẵn sàng sử dụng.</span>
           </div>
           <div class="flex items-start gap-3">
-            <span class="text-retroRed-600 font-bold">✓</span>
+            <span class="text-tsmRed font-bold">✓</span>
             <span><strong>Bộ The Brand Kit cá nhân:</strong> Tự do tích hợp font chữ, màu sắc và logo của bạn.</span>
           </div>
           <div class="flex items-start gap-3">
-            <span class="text-retroRed-600 font-bold">✓</span>
+            <span class="text-tsmRed font-bold">✓</span>
             <span><strong>Hệ thống tạo Carousel & Stories:</strong> Biến 1 video thành chuỗi bài đăng đa nền tảng.</span>
           </div>
           <div class="flex items-start gap-3">
-            <span class="text-retroRed-600 font-bold">✓</span>
-            <span><strong>Miễn phí cập nhật tính năng mới:</strong> Tự động nhận các bản nâng cấp tiếp theo mà không tốn thêm xu nào.</span>
+            <span class="text-tsmRed font-bold">✓</span>
+            <span><strong>Miễn phí cập nhật tính năng mới:</strong> Tự động nhận các bản nâng cấp tiếp theo.</span>
           </div>
           <div class="flex items-start gap-3">
-            <span class="text-retroRed-600 font-bold">✓</span>
-            <span><strong>Hỗ trợ kỹ thuật 1:1 qua Zalo:</strong> Đồng hành giải đáp mọi khó khăn trong quá trình sử dụng.</span>
+            <span class="text-tsmRed font-bold">✓</span>
+            <span><strong>Hỗ trợ kỹ thuật 1:1 qua Zalo:</strong> Đồng hành giải đáp mọi khó khăn trực tiếp.</span>
           </div>
           <div class="flex items-start gap-3">
-            <span class="text-retroRed-600 font-bold">✓</span>
+            <span class="text-tsmRed font-bold">✓</span>
             <span><strong>Cam kết hoàn tiền trong 7 ngày:</strong> Không rủi ro, hoàn tiền 100% nếu không hài lòng.</span>
           </div>
         </div>
 
         <!-- Order Button -->
         <div class="pt-6 hairline-t text-center space-y-4">
-          <button onclick="openOrderModal()" class="w-full sm:w-auto px-10 py-5 rounded-full bg-retroRed-600 text-white font-bold text-base sm:text-lg shadow-xl hover:bg-retroRed-700 hover:shadow-2xl hover:-translate-y-0.5 transition-all inline-flex items-center justify-center gap-3">
+          <button onclick="openOrderModal()" class="w-full sm:w-auto px-10 py-5 rounded-full bg-tsmRed text-white font-bold text-base sm:text-lg shadow-xl hover:bg-tsmRedDark hover:shadow-2xl hover:-translate-y-0.5 transition-all inline-flex items-center justify-center gap-3">
             <span>Đăng Ký & Nhận Kích Hoạt Ngay Lập Tức</span>
             <span>→</span>
           </button>
@@ -936,7 +1001,7 @@
           <div class="flex flex-wrap items-center justify-center gap-4 text-xs text-neutral-500 font-mono">
             <span>🔒 Thanh toán bảo mật</span>
             <span>•</span>
-            <span>⚡ Kích hoạt tự động qua Email & Zalo</span>
+            <span>⚡ Kích hoạt tức thì qua Email & Zalo</span>
             <span>•</span>
             <span>🛡️ Hoàn tiền 7 ngày</span>
           </div>
@@ -948,15 +1013,15 @@
   </section>
 
   <!-- FAQ SECTION (ACCORDION) -->
-  <section id="faq" class="py-20 sm:py-28 hairline-b bg-cream-100">
+  <section id="faq" class="py-20 sm:py-28 hairline-b bg-tsmWheat/50">
     <div class="max-w-4xl mx-auto px-4 sm:px-6">
       
-      <div class="text-center max-w-xl mx-auto mb-16">
-        <span class="text-xs font-bold uppercase tracking-widest text-retroRed-600 block mb-2">Giải đáp khúc mắc</span>
-        <h2 class="font-serif-vintage text-3xl sm:text-5xl text-noir-900 font-semibold mb-4">
+      <div class="text-center max-w-xl mx-auto mb-16 reveal">
+        <span class="text-xs font-mono font-bold uppercase tracking-widest text-tsmRed block mb-2">Giải đáp khúc mắc</span>
+        <h2 class="font-serif-vintage text-3xl sm:text-5xl text-tsmDark font-semibold mb-4">
           Câu trả lời thẳng thắn cho bạn.
         </h2>
-        <p class="text-noir-600 text-sm sm:text-base">
+        <p class="text-tsmGray text-sm sm:text-base">
           Dưới đây là những câu hỏi phổ biến nhất mà mọi người thường băn khoăn trước khi tham gia.
         </p>
       </div>
@@ -964,68 +1029,68 @@
       <div class="space-y-4">
         
         <!-- FAQ 1 -->
-        <details class="group p-6 rounded-2xl bg-cream-50 hairline-all cursor-pointer transition-all">
-          <summary class="flex justify-between items-center font-bold text-base sm:text-lg text-noir-900 list-none">
+        <details class="group p-6 rounded-2xl bg-tsmCream hairline-all cursor-pointer transition-all hover-lift reveal">
+          <summary class="flex justify-between items-center font-bold text-base sm:text-lg text-tsmDark list-none">
             <span>“Tôi không rành công nghệ, liệu có tự cài đặt và dùng được không?”</span>
-            <span class="ml-4 transition-transform duration-300 group-open:rotate-45 text-xl text-retroRed-600 font-normal">+</span>
+            <span class="ml-4 transition-transform duration-300 group-open:rotate-45 text-2xl text-tsmRed font-normal">+</span>
           </summary>
-          <div class="mt-4 text-sm sm:text-base text-noir-700 leading-relaxed pt-3 hairline-t">
-            Bạn hoàn toàn không cần phải biết viết code hay là dân IT. Khâu cài đặt ban đầu là phần kỹ thuật nhất, nhưng tôi đã quay video hướng dẫn từng cú nhấp chuột (cả trên máy Mac và máy tính Windows). Sau khi cài xong, việc dựng phim chỉ đơn giản là bạn gõ yêu cầu bằng tiếng Việt như đang nhắn tin cho bạn bè vậy.
+          <div class="mt-4 text-sm sm:text-base text-tsmDark leading-relaxed pt-3 hairline-t">
+            Bạn hoàn toàn không cần phải biết viết code hay là dân IT. Khâu cài đặt ban đầu là phần kỹ thuật nhất, nhưng Sia Trương đã quay video hướng dẫn từng cú nhấp chuột (cả trên máy Mac và máy tính Windows). Sau khi cài xong, việc dựng phim chỉ đơn giản là bạn gõ yêu cầu bằng tiếng Việt như đang nhắn tin cho bạn bè vậy.
           </div>
         </details>
 
         <!-- FAQ 2 -->
-        <details class="group p-6 rounded-2xl bg-cream-50 hairline-all cursor-pointer transition-all">
-          <summary class="flex justify-between items-center font-bold text-base sm:text-lg text-noir-900 list-none">
+        <details class="group p-6 rounded-2xl bg-tsmCream hairline-all cursor-pointer transition-all hover-lift reveal">
+          <summary class="flex justify-between items-center font-bold text-base sm:text-lg text-tsmDark list-none">
             <span>“Video tạo ra có thực sự giống phong cách và giọng văn của tôi không?”</span>
-            <span class="ml-4 transition-transform duration-300 group-open:rotate-45 text-xl text-retroRed-600 font-normal">+</span>
+            <span class="ml-4 transition-transform duration-300 group-open:rotate-45 text-2xl text-tsmRed font-normal">+</span>
           </summary>
-          <div class="mt-4 text-sm sm:text-base text-noir-700 leading-relaxed pt-3 hairline-t">
+          <div class="mt-4 text-sm sm:text-base text-tsmDark leading-relaxed pt-3 hairline-t">
             Chắc chắn có. Cỗ máy xử lý trực tiếp từ video gốc do chính bạn quay, với giọng nói thật và biểu cảm thật của bạn. Bạn còn được thiết lập bảng màu, phông chữ và phong cách cắt ghép đặc trưng của mình trong The Brand Kit. Bạn luôn là người quyết định cuối cùng.
           </div>
         </details>
 
         <!-- FAQ 3 -->
-        <details class="group p-6 rounded-2xl bg-cream-50 hairline-all cursor-pointer transition-all">
-          <summary class="flex justify-between items-center font-bold text-base sm:text-lg text-noir-900 list-none">
+        <details class="group p-6 rounded-2xl bg-tsmCream hairline-all cursor-pointer transition-all hover-lift reveal">
+          <summary class="flex justify-between items-center font-bold text-base sm:text-lg text-tsmDark list-none">
             <span>“Tôi có cần mua tài khoản CapCut Pro không?”</span>
-            <span class="ml-4 transition-transform duration-300 group-open:rotate-45 text-xl text-retroRed-600 font-normal">+</span>
+            <span class="ml-4 transition-transform duration-300 group-open:rotate-45 text-2xl text-tsmRed font-normal">+</span>
           </summary>
-          <div class="mt-4 text-sm sm:text-base text-noir-700 leading-relaxed pt-3 hairline-t">
+          <div class="mt-4 text-sm sm:text-base text-tsmDark leading-relaxed pt-3 hairline-t">
             Không bắt buộc! Bạn hoàn toàn có thể sử dụng bản CapCut miễn phí. Thậm chí nếu bạn muốn chế độ Hands-off (rảnh tay), AI sẽ tự động xuất thẳng ra file video hoàn chỉnh (.MP4) mà bạn không cần phải mở CapCut lên lần nào.
           </div>
         </details>
 
         <!-- FAQ 4 -->
-        <details class="group p-6 rounded-2xl bg-cream-50 hairline-all cursor-pointer transition-all">
-          <summary class="flex justify-between items-center font-bold text-base sm:text-lg text-noir-900 list-none">
+        <details class="group p-6 rounded-2xl bg-tsmCream hairline-all cursor-pointer transition-all hover-lift reveal">
+          <summary class="flex justify-between items-center font-bold text-base sm:text-lg text-tsmDark list-none">
             <span>“Mỗi tháng tôi có thể sản xuất được bao nhiêu video?”</span>
-            <span class="ml-4 transition-transform duration-300 group-open:rotate-45 text-xl text-retroRed-600 font-normal">+</span>
+            <span class="ml-4 transition-transform duration-300 group-open:rotate-45 text-2xl text-tsmRed font-normal">+</span>
           </summary>
-          <div class="mt-4 text-sm sm:text-base text-noir-700 leading-relaxed pt-3 hairline-t">
+          <div class="mt-4 text-sm sm:text-base text-tsmDark leading-relaxed pt-3 hairline-t">
             Không hề có giới hạn số lượng video trong hệ thống. Bạn có thể dựng 10, 50 hay 100 video mỗi tháng tùy theo tần suất sáng tạo của bạn mà không lo bị tính thêm phụ phí cho cỗ máy.
           </div>
         </details>
 
         <!-- FAQ 5 -->
-        <details class="group p-6 rounded-2xl bg-cream-50 hairline-all cursor-pointer transition-all">
-          <summary class="flex justify-between items-center font-bold text-base sm:text-lg text-noir-900 list-none">
+        <details class="group p-6 rounded-2xl bg-tsmCream hairline-all cursor-pointer transition-all hover-lift reveal">
+          <summary class="flex justify-between items-center font-bold text-base sm:text-lg text-tsmDark list-none">
             <span>“Máy tính của tôi có chạy được không?”</span>
-            <span class="ml-4 transition-transform duration-300 group-open:rotate-45 text-xl text-retroRed-600 font-normal">+</span>
+            <span class="ml-4 transition-transform duration-300 group-open:rotate-45 text-2xl text-tsmRed font-normal">+</span>
           </summary>
-          <div class="mt-4 text-sm sm:text-base text-noir-700 leading-relaxed pt-3 hairline-t">
+          <div class="mt-4 text-sm sm:text-base text-tsmDark leading-relaxed pt-3 hairline-t">
             Hệ thống hỗ trợ mượt mà trên máy tính Apple Mac (macOS 13 trở lên, khuyến khích chip M1/M2/M3) và máy tính Windows (Windows 10 hoặc 11) có tối thiểu 10GB dung lượng trống. Hệ thống không chạy trên iPad hay Chromebook.
           </div>
         </details>
 
         <!-- FAQ 6 -->
-        <details class="group p-6 rounded-2xl bg-cream-50 hairline-all cursor-pointer transition-all">
-          <summary class="flex justify-between items-center font-bold text-base sm:text-lg text-noir-900 list-none">
+        <details class="group p-6 rounded-2xl bg-tsmCream hairline-all cursor-pointer transition-all hover-lift reveal">
+          <summary class="flex justify-between items-center font-bold text-base sm:text-lg text-tsmDark list-none">
             <span>“Chính sách hoàn tiền như thế nào?”</span>
-            <span class="ml-4 transition-transform duration-300 group-open:rotate-45 text-xl text-retroRed-600 font-normal">+</span>
+            <span class="ml-4 transition-transform duration-300 group-open:rotate-45 text-2xl text-tsmRed font-normal">+</span>
           </summary>
-          <div class="mt-4 text-sm sm:text-base text-noir-700 leading-relaxed pt-3 hairline-t">
-            Bạn có trọn vẹn 7 ngày trải nghiệm. Nếu sau khi cài đặt và thử nghiệm mà hệ thống không giúp bạn tiết kiệm thời gian hoặc không đúng như mô tả, chỉ cần gửi 1 tin nhắn cho tôi qua Zalo hoặc Email, bạn sẽ được hoàn lại 100% chi phí không cần giải thích thêm.
+          <div class="mt-4 text-sm sm:text-base text-tsmDark leading-relaxed pt-3 hairline-t">
+            Bạn có trọn vẹn 7 ngày trải nghiệm. Nếu sau khi cài đặt và thử nghiệm mà hệ thống không giúp bạn tiết kiệm thời gian hoặc không đúng như mô tả, chỉ cần gửi 1 tin nhắn cho Sia Trương qua Zalo hoặc Email, bạn sẽ được hoàn lại 100% chi phí không cần giải thích thêm.
           </div>
         </details>
 
@@ -1035,51 +1100,51 @@
   </section>
 
   <!-- FINAL CTA BANNER -->
-  <section class="py-20 sm:py-24 bg-noir-900 text-cream-100 hairline-b text-center relative overflow-hidden">
-    <div class="max-w-3xl mx-auto px-4 sm:px-6 relative z-10">
+  <section class="py-20 sm:py-24 bg-tsmDark text-tsmCream hairline-b text-center relative overflow-hidden">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 relative z-10 reveal">
       
       <span class="text-xs font-mono uppercase tracking-widest text-red-400 font-bold block mb-4">
         Khởi đầu ngay hôm nay
       </span>
       <h2 class="font-serif-vintage text-4xl sm:text-6xl font-bold text-white mb-6 leading-tight">
         Dừng việc cặm cụi cắt video. <br />
-        <span class="italic font-normal text-retroRed-500">Hãy để AI làm phần việc nặng nhọc.</span>
+        <span class="italic font-normal text-red-500">Hãy để AI làm phần việc nặng nhọc.</span>
       </h2>
       <p class="text-neutral-300 text-base sm:text-lg mb-8 max-w-xl mx-auto">
         Đừng để kỹ thuật dựng phim cản trở bạn chia sẻ giá trị và tiếp cận hàng triệu khách hàng tiềm năng trên mạng xã hội.
       </p>
 
-      <button onclick="openOrderModal()" class="px-10 py-5 rounded-full bg-retroRed-600 text-white font-bold text-lg shadow-2xl hover:bg-retroRed-700 hover:scale-105 transition-all">
+      <button onclick="openOrderModal()" class="px-10 py-5 rounded-full bg-tsmRed text-white font-bold text-lg shadow-2xl hover:bg-tsmRedDark hover:scale-105 transition-all">
         Sở Hữu Cỗ Máy Ngay (1.990.000đ) →
       </button>
 
       <p class="text-xs text-neutral-400 mt-6 font-mono">
-        ✦ Hỗ trợ kích hoạt tức thì • Tên miền chính thức: siatruong.com ✦
+        ✦ Hỗ trợ kích hoạt tức thì • Tên miền chính thức: siatruong.com • Bản quyền thuộc Sia Trương ✦
       </p>
 
     </div>
   </section>
 
   <!-- FOOTER -->
-  <footer class="py-12 bg-cream-50 hairline-t text-noir-700 text-xs sm:text-sm">
+  <footer class="py-12 bg-tsmCream hairline-t text-tsmDark text-xs sm:text-sm">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 flex flex-col md:flex-row items-center justify-between gap-6">
       
       <div class="flex items-center gap-3">
-        <div class="w-7 h-7 rounded-full bg-retroRed-600 text-white font-serif-vintage font-bold flex items-center justify-center text-sm">
+        <div class="w-7 h-7 rounded-full bg-tsmRed text-white font-serif-vintage font-bold flex items-center justify-center text-sm">
           S
         </div>
         <div>
-          <span class="font-bold text-noir-900">Sia Trường</span>
+          <span class="font-bold text-tsmDark">Sia Trương</span>
           <span class="text-neutral-500 text-xs block">© 2026 siatruong.com. Tất cả quyền được bảo lưu.</span>
         </div>
       </div>
 
       <div class="flex flex-wrap items-center gap-6 text-xs text-neutral-600 font-medium">
-        <a href="#how-it-works" class="hover:text-retroRed-600">Cách hoạt động</a>
-        <a href="#demo" class="hover:text-retroRed-600">Bản demo</a>
-        <a href="#pricing" class="hover:text-retroRed-600">Bảng giá</a>
-        <a href="#faq" class="hover:text-retroRed-600">Hỏi đáp</a>
-        <a href="https://zalo.me" target="_blank" class="text-retroRed-600 font-bold hover:underline">Liên hệ Zalo</a>
+        <a href="#how-it-works" class="hover:text-tsmRed">Cách hoạt động</a>
+        <a href="#demo" class="hover:text-tsmRed">Bản demo</a>
+        <a href="#pricing" class="hover:text-tsmRed">Bảng giá</a>
+        <a href="#faq" class="hover:text-tsmRed">Hỏi đáp</a>
+        <a href="https://zalo.me" target="_blank" class="text-tsmRed font-bold hover:underline">Liên hệ Zalo</a>
       </div>
 
     </div>
@@ -1097,45 +1162,45 @@
 
   <!-- ORDER MODAL POPUP -->
   <div id="order-modal" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm hidden items-center justify-center p-4">
-    <div class="bg-cream-50 rounded-3xl max-w-lg w-full p-6 sm:p-8 hairline-all shadow-2xl relative animate-in fade-in zoom-in duration-200">
+    <div class="bg-tsmCream rounded-3xl max-w-lg w-full p-6 sm:p-8 hairline-all shadow-2xl relative animate-in fade-in zoom-in duration-200">
       
       <!-- Close button -->
-      <button onclick="closeOrderModal()" class="absolute top-5 right-5 text-neutral-400 hover:text-noir-900 text-2xl font-bold w-8 h-8 rounded-full bg-cream-200 flex items-center justify-center">
+      <button onclick="closeOrderModal()" class="absolute top-5 right-5 text-neutral-400 hover:text-tsmDark text-2xl font-bold w-8 h-8 rounded-full bg-tsmWheat flex items-center justify-center">
         ×
       </button>
 
       <div class="mb-6">
-        <span class="text-xs font-mono uppercase tracking-wider text-retroRed-600 font-bold block mb-1">Đăng Ký Sở Hữu</span>
-        <h3 class="font-serif-vintage text-2xl sm:text-3xl font-bold text-noir-900">
+        <span class="text-xs font-mono uppercase tracking-wider text-tsmRed font-bold block mb-1">Đăng Ký Sở Hữu</span>
+        <h3 class="font-serif-vintage text-2xl sm:text-3xl font-bold text-tsmDark">
           The Reels Editing Engine
         </h3>
         <p class="text-xs text-neutral-500 mt-1">
-          Điền thông tin để nhận đường link kích hoạt và tài liệu hướng dẫn ngay lập tức.
+          Điền thông tin để nhận đường link kích hoạt và tài liệu hướng dẫn độc quyền từ Sia Trương.
         </p>
       </div>
 
       <form id="order-form" onsubmit="handleFormSubmit(event)" class="space-y-4">
         <div>
-          <label class="block text-xs font-bold uppercase tracking-wider text-noir-800 mb-1">Họ và tên của bạn *</label>
-          <input type="text" required placeholder="Nguyễn Văn A" class="w-full px-4 py-3 rounded-xl bg-cream-100 hairline-all text-sm focus:outline-none focus:ring-2 focus:ring-retroRed-600">
+          <label class="block text-xs font-bold uppercase tracking-wider text-tsmDark mb-1">Họ và tên của bạn *</label>
+          <input type="text" required placeholder="Nguyễn Văn A" class="w-full px-4 py-3 rounded-xl bg-white hairline-all text-sm focus:outline-none focus:ring-2 focus:ring-tsmRed">
         </div>
 
         <div>
-          <label class="block text-xs font-bold uppercase tracking-wider text-noir-800 mb-1">Số điện thoại / Zalo *</label>
-          <input type="tel" required placeholder="0912 345 678" class="w-full px-4 py-3 rounded-xl bg-cream-100 hairline-all text-sm focus:outline-none focus:ring-2 focus:ring-retroRed-600">
+          <label class="block text-xs font-bold uppercase tracking-wider text-tsmDark mb-1">Số điện thoại / Zalo *</label>
+          <input type="tel" required placeholder="0912 345 678" class="w-full px-4 py-3 rounded-xl bg-white hairline-all text-sm focus:outline-none focus:ring-2 focus:ring-tsmRed">
         </div>
 
         <div>
-          <label class="block text-xs font-bold uppercase tracking-wider text-noir-800 mb-1">Địa chỉ Email nhận tài khoản *</label>
-          <input type="email" required placeholder="email@cuaban.com" class="w-full px-4 py-3 rounded-xl bg-cream-100 hairline-all text-sm focus:outline-none focus:ring-2 focus:ring-retroRed-600">
+          <label class="block text-xs font-bold uppercase tracking-wider text-tsmDark mb-1">Địa chỉ Email nhận tài khoản *</label>
+          <input type="email" required placeholder="email@cuaban.com" class="w-full px-4 py-3 rounded-xl bg-white hairline-all text-sm focus:outline-none focus:ring-2 focus:ring-tsmRed">
         </div>
 
-        <div class="p-3.5 rounded-xl bg-cream-200/60 hairline-all flex items-center justify-between text-xs">
-          <span class="font-semibold text-noir-800">Tổng thanh toán ưu đãi:</span>
-          <span class="font-bold text-base text-retroRed-600 font-serif-vintage">1.990.000đ</span>
+        <div class="p-3.5 rounded-xl bg-tsmWheat/80 hairline-all flex items-center justify-between text-xs">
+          <span class="font-semibold text-tsmDark">Tổng thanh toán ưu đãi:</span>
+          <span class="font-bold text-base text-tsmRed font-serif-vintage">1.990.000đ ($79)</span>
         </div>
 
-        <button type="submit" class="w-full py-4 rounded-xl bg-retroRed-600 text-white font-bold text-sm hover:bg-retroRed-700 transition-colors shadow-lg">
+        <button type="submit" class="w-full py-4 rounded-xl bg-tsmRed text-white font-bold text-sm hover:bg-tsmRedDark transition-colors shadow-lg">
           Xác Nhận & Nhận Hướng Dẫn Kích Hoạt →
         </button>
 
@@ -1144,16 +1209,16 @@
         </p>
       </form>
 
-      <!-- Success Notification Box (Hidden by default) -->
+      <!-- Success Notification Box -->
       <div id="order-success" class="hidden text-center py-6 space-y-4">
         <div class="w-14 h-14 rounded-full bg-green-100 text-green-700 mx-auto flex items-center justify-center text-2xl font-bold">
           ✓
         </div>
-        <h4 class="font-serif-vintage text-2xl font-bold text-noir-900">Đăng Ký Thành Công!</h4>
+        <h4 class="font-serif-vintage text-2xl font-bold text-tsmDark">Đăng Ký Thành Công!</h4>
         <p class="text-sm text-neutral-600">
-          Cảm ơn bạn. Thông tin truy cập và hướng dẫn kích hoạt cỗ máy đã được gửi tới số điện thoại/email của bạn.
+          Cảm ơn bạn. Sia Trương đã gửi thông tin truy cập và tài liệu kích hoạt tới số điện thoại/email của bạn.
         </p>
-        <button onclick="closeOrderModal()" class="px-6 py-2.5 rounded-full bg-noir-900 text-white text-xs font-semibold">
+        <button onclick="closeOrderModal()" class="px-6 py-2.5 rounded-full bg-tsmDark text-white text-xs font-semibold">
           Đóng cửa sổ
         </button>
       </div>
@@ -1161,13 +1226,11 @@
     </div>
   </div>
 
-  <!-- JAVASCRIPT LOGIC -->
+  <!-- JAVASCRIPT ANIMATIONS & INTERACTIONS -->
   <script>
-    // Countdown Timer logic
+    // 1. Live Countdown Timer
     function startCountdown() {
-      // Set target countdown 2 days from now
-      let target = new Date().getTime() + (1 * 24 * 3600 + 14 * 3600 + 36 * 60) * 1000;
-      
+      let target = new Date().getTime() + (1 * 24 * 3600 + 13 * 3600 + 48 * 60) * 1000;
       setInterval(function() {
         let now = new Date().getTime();
         let diff = target - now;
@@ -1186,7 +1249,26 @@
     }
     startCountdown();
 
-    // Interactive Clip Switcher (Raw vs Finished)
+    // 2. Scroll Reveal Intersection Observer
+    function initScrollReveal() {
+      const reveals = document.querySelectorAll('.reveal');
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('active');
+          }
+        });
+      }, {
+        threshold: 0.1,
+        rootMargin: '0px 0px -40px 0px'
+      });
+
+      reveals.forEach(el => observer.observe(el));
+    }
+    document.addEventListener('DOMContentLoaded', initScrollReveal);
+    initScrollReveal();
+
+    // 3. Interactive Clip Switcher (Raw vs Finished)
     function switchClip(mode) {
       const btnRaw = document.getElementById('btn-raw');
       const btnFin = document.getElementById('btn-finished');
@@ -1200,14 +1282,14 @@
       const diffList = document.getElementById('diff-list');
 
       if (mode === 'raw') {
-        btnRaw.className = "px-6 py-2.5 rounded-full text-xs sm:text-sm font-bold tracking-wider uppercase transition-all duration-300 bg-noir-900 text-white shadow-md";
-        btnFin.className = "px-6 py-2.5 rounded-full text-xs sm:text-sm font-bold tracking-wider uppercase transition-all duration-300 text-neutral-600 hover:text-noir-900";
+        btnRaw.className = "px-6 py-2.5 rounded-full text-xs sm:text-sm font-bold tracking-wider uppercase transition-all duration-300 bg-tsmDark text-white shadow-md";
+        btnFin.className = "px-6 py-2.5 rounded-full text-xs sm:text-sm font-bold tracking-wider uppercase transition-all duration-300 text-neutral-600 hover:text-tsmDark";
         
         badgeMode.innerText = "Video Thô (Chưa Cắt)";
-        badgeMode.className = "bg-neutral-600/90 text-white px-2 py-0.5 rounded font-bold uppercase tracking-wider";
+        badgeMode.className = "bg-neutral-600 text-white px-2.5 py-0.5 rounded font-bold uppercase tracking-wider";
         captionText.innerText = "...ừm, à thì hôm nay mình muốn chia sẻ một cái này... (khoảng lặng 3 giây)...";
         captionText.className = "text-xs font-normal text-neutral-400 italic";
-        captionBox.className = "p-2 rounded-lg bg-black/40 border border-white/10";
+        captionBox.className = "p-2.5 rounded-xl bg-black/40 border border-white/10";
         audioWave.style.opacity = "0.2";
         labelAudio.innerText = "🔇 Chỉ có tiếng ồn xung quanh";
 
@@ -1228,41 +1310,41 @@
           </li>
         `;
       } else {
-        btnFin.className = "px-6 py-2.5 rounded-full text-xs sm:text-sm font-bold tracking-wider uppercase transition-all duration-300 bg-noir-900 text-white shadow-md";
-        btnRaw.className = "px-6 py-2.5 rounded-full text-xs sm:text-sm font-bold tracking-wider uppercase transition-all duration-300 text-neutral-600 hover:text-noir-900";
+        btnFin.className = "px-6 py-2.5 rounded-full text-xs sm:text-sm font-bold tracking-wider uppercase transition-all duration-300 bg-tsmDark text-white shadow-md";
+        btnRaw.className = "px-6 py-2.5 rounded-full text-xs sm:text-sm font-bold tracking-wider uppercase transition-all duration-300 text-neutral-600 hover:text-tsmDark";
         
         badgeMode.innerText = "Đã Xử Lý Xong (AI Engine)";
-        badgeMode.className = "bg-retroRed-600 text-white px-2 py-0.5 rounded font-bold uppercase tracking-wider";
+        badgeMode.className = "bg-tsmRed text-white px-2.5 py-0.5 rounded font-bold uppercase tracking-wider";
         captionText.innerText = "“Làm thế nào tôi tạo ra 30 video Reels trong 1 buổi chiều mà không bị kiệt sức?”";
         captionText.className = "text-xs sm:text-sm font-bold tracking-tight text-yellow-300 leading-snug";
-        captionBox.className = "p-2 rounded-lg bg-black/60 backdrop-blur-sm border border-white/20";
+        captionBox.className = "p-2.5 rounded-xl bg-black/60 backdrop-blur-md border border-white/20";
         audioWave.style.opacity = "1";
         labelAudio.innerText = "🎵 Nhạc nền lo-fi thư thái";
 
         diffTag.innerText = "KẾT QUẢ SAU 2 PHÚT CHẠY ENGINE";
-        diffTitle.innerText = "Video đã được tự động cắt gọt, chỉnh màu, nhịp điệu và phụ đề hoàn hảo.";
+        diffTitle.innerText = "Video được tự động gọt dũa, chỉnh màu, nhịp điệu và phụ đề hoàn hảo.";
         diffList.innerHTML = `
           <li class="flex items-start gap-3">
-            <span class="text-retroRed-600 font-bold mt-0.5">✓</span>
-            <span><strong>Loại bỏ 100% khoảng lặng:</strong> Những đoạn ậm ừ, suy nghĩ, thở dài được AI cắt ngọt lịm không tì vết.</span>
+            <span class="text-tsmRed font-bold mt-0.5">✓</span>
+            <span><strong>Lọc 100% khoảng lặng & từ thừa:</strong> Những đoạn ậm ừ, thở dài, nói lặp được AI cắt ngọt lịm không tì vết.</span>
           </li>
           <li class="flex items-start gap-3">
-            <span class="text-retroRed-600 font-bold mt-0.5">✓</span>
-            <span><strong>Hiệu ứng Dynamic Zoom:</strong> Phóng to / thu nhỏ khung hình theo từng câu chốt đắt giá, giữ mắt người xem không thể rời màn hình.</span>
+            <span class="text-tsmRed font-bold mt-0.5">✓</span>
+            <span><strong>Hiệu ứng Dynamic Zoom:</strong> Phóng to / thu nhỏ khung hình theo từng câu nói đắt giá, giữ mắt người xem không thể rời màn hình.</span>
           </li>
           <li class="flex items-start gap-3">
-            <span class="text-retroRed-600 font-bold mt-0.5">✓</span>
-            <span><strong>Phụ đề động tự động:</strong> Highlight từ khóa vàng, tự động tạo phụ đề chính xác đến từng mili-giây.</span>
+            <span class="text-tsmRed font-bold mt-0.5">✓</span>
+            <span><strong>Phụ đề động tự động:</strong> Highlight từ khóa vàng bắt mắt, tự động tạo phụ đề chính xác đến từng mili-giây.</span>
           </li>
           <li class="flex items-start gap-3">
-            <span class="text-retroRed-600 font-bold mt-0.5">✓</span>
-            <span><strong>Nhạc nền & Âm thanh SFX:</strong> Tự động chọn nhạc hợp cảm xúc và cân bằng âm lượng thông minh để giọng bạn luôn vang rõ.</span>
+            <span class="text-tsmRed font-bold mt-0.5">✓</span>
+            <span><strong>Cân bằng âm lượng thông minh:</strong> Tự động chọn nhạc hợp cảm xúc và làm nổi bật giọng nói của bạn.</span>
           </li>
         `;
       }
     }
 
-    // Modal logic
+    // 4. Modal Logic
     function openOrderModal() {
       const modal = document.getElementById('order-modal');
       modal.classList.remove('hidden');
