@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Cảm ơn bạn đã nhận quà · Sia Truong</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,500;0,600;1,500&family=Be+Vietnam+Pro:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#F8F5F2;color:#302b28;font:400 16px/1.7 'Be Vietnam Pro',sans-serif}
+nav,main,footer{max-width:1200px;margin:auto;padding:24px 40px}
+nav a{font:600 28px Alegreya,serif;color:#720000;text-decoration:none}
+h1,h2,h3{font-family:Alegreya,serif;font-weight:500;line-height:1.1;margin:0}
+h1{font-size:clamp(40px,5vw,64px);color:#720000}
+p{margin:20px 0}
+.container{max-width:760px;margin:40px auto 80px;text-align:center}
+.badge{display:inline-block;padding:6px 14px;background:#e4e7dc;color:#37432d;border-radius:20px;font-size:12px;font-weight:600;margin-bottom:20px}
+.card{background:#fff;border:1px solid #ded5cc;border-radius:16px;padding:48px 40px;margin-top:32px;text-align:left;box-shadow:0 10px 30px rgba(48,43,40,.04)}
+.card h2{font-size:28px;color:#720000;margin-bottom:16px}
+.steps{list-style:none;padding:0;margin:24px 0}
+.steps li{position:relative;padding-left:32px;margin-bottom:18px;font-size:15px;color:#554e48}
+.steps li:before{content:'✓';position:absolute;left:0;color:#720000;font-weight:700}
+.actions{display:flex;flex-wrap:wrap;gap:16px;margin-top:32px}
+.btn-primary{flex:1;min-width:240px;background:#720000;color:white;text-align:center;padding:16px 24px;border-radius:6px;font-weight:500;text-decoration:none;transition:background .2s}
+.btn-primary:hover{background:#510000}
+.btn-secondary{flex:1;min-width:240px;background:#eee8e1;color:#302b28;border:1px solid #ded5cc;text-align:center;padding:16px 24px;border-radius:6px;font-weight:500;text-decoration:none;transition:background .2s}
+.btn-secondary:hover{background:#e2dbd2}
+footer{font-size:14px;color:#635b55;border-top:1px solid #ded5cc;text-align:center;padding:32px 20px}
+footer a{color:#720000;text-decoration:none}
+@media(max-width:700px){nav,main,footer{padding:20px}.card{padding:28px 20px}.actions{flex-direction:column}}
+</style>
+</head>
+<body>
+<nav>
+  <a href="/">Sia Truong</a>
+</nav>
+
+<main>
+  <div class="container">
+    <span class="badge">Đăng ký thành công</span>
+    <h1>Món quà đã sẵn sàng!<br><em style="font-style:italic">Cảm ơn bạn đã kết nối cùng Sia.</em></h1>
+    <p style="color:#635b55;font-size:17px">
+      Hệ thống sản xuất nội dung tự động đã được chuẩn bị xong để bạn bắt đầu áp dụng ngay hôm nay.
+    </p>
+
+    <div class="card">
+      <h2>Bạn có thể xem món quà ngay lúc này:</h2>
+      <ul class="steps">
+        <li><strong>Xem trực tiếp trên web:</strong> Sơ đồ quy trình vận hành nội dung tuần kèm hướng dẫn 4 chặng và prompt mẫu 6 cột đã được mở sẵn cho bạn.</li>
+        <li><strong>Kiểm tra hòm thư:</strong> Một bản sao lưu trữ tài liệu đã được gửi tới email của bạn (nếu chưa thấy trong Hộp thư đến, bạn nhớ xem thêm mục Spam / Quảng cáo nhé).</li>
+        <li><strong>Khâu dựng tiếp theo:</strong> Sau khi có kịch bản và quay clip thô, bạn có thể tham khảo Xưởng Dựng để AI làm hộ phần việc cắt ghép và xuất bản 3 định dạng.</li>
+      </ul>
+
+      <div class="actions">
+        <a href="/tai-nguyen/he-thong-san-xuat-noi-dung-tu-dong" class="btn-primary">
+          Xem Sơ Đồ Quy Trình Tuần Ngay →
+        </a>
+        <a href="/xuong" class="btn-secondary">
+          Khám Phá Xưởng Dựng Rảnh Tay
+        </a>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer>
+  Sia Truong · <a href="mailto:yourfavoritesia@gmail.com">yourfavoritesia@gmail.com</a> · <a href="/">Trang chủ</a> · <a href="/ve-sia">Về Sia</a>
+</footer>
+
+<script>
+try {
+  const name = localStorage.getItem('sia_lead_name');
+  if (name) {
+    const heading = document.querySelector('h1');
+    if (heading) heading.innerHTML = `Món quà đã sẵn sàng!<br><em style="font-style:italic">Cảm ơn ${name} đã kết nối cùng Sia.</em>`;
+  }
+} catch(e) {}
+</script>
+</body>
+</html>
