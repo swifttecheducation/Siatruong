@@ -1,0 +1,203 @@
+/* ===================================================================
+   Sia Truong - Diverse Scroll & Motion System
+   Palette: Ivory (#F8F5F2), Wine (#720000), Olive (#798466), Ink (#302b28)
+   =================================================================== */
+
+/* 1. Scroll Progress Bar */
+#scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3.5px;
+  width: 0%;
+  background: linear-gradient(90deg, #720000 0%, #b22e2e 50%, #798466 100%);
+  z-index: 100000;
+  transition: width 0.1s cubic-bezier(0.1, 0.9, 0.2, 1);
+  box-shadow: 0 0 10px rgba(114, 0, 0, 0.4);
+}
+
+/* 2. Sticky Glass Header on Scroll */
+nav.sticky-glass {
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 9999 !important;
+  background: rgba(248, 245, 242, 0.92) !important;
+  backdrop-filter: blur(14px) !important;
+  -webkit-backdrop-filter: blur(14px) !important;
+  border-bottom: 1px solid rgba(222, 213, 204, 0.85) !important;
+  box-shadow: 0 10px 30px rgba(48, 43, 40, 0.05) !important;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+/* 3. Diverse Scroll Reveal Animations */
+
+/* Default Fade Up */
+.reveal, .reveal-up {
+  opacity: 0;
+  transform: translateY(36px);
+  transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.85s cubic-bezier(0.16, 1, 0.3, 1),
+              filter 0.85s ease;
+  will-change: opacity, transform;
+}
+.reveal.is-visible, .reveal-up.is-visible {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+/* Blur to Focus Reveal */
+.reveal-blur {
+  opacity: 0;
+  filter: blur(12px);
+  transform: translateY(28px);
+  transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+              filter 0.9s ease;
+  will-change: opacity, transform, filter;
+}
+.reveal-blur.is-visible {
+  opacity: 1 !important;
+  filter: blur(0) !important;
+  transform: translateY(0) !important;
+}
+
+/* Slide from Left */
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-40px) scale(0.97);
+  transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.reveal-left.is-visible {
+  opacity: 1 !important;
+  transform: translateX(0) scale(1) !important;
+}
+
+/* Slide from Right */
+.reveal-right {
+  opacity: 0;
+  transform: translateX(40px) scale(0.97);
+  transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.reveal-right.is-visible {
+  opacity: 1 !important;
+  transform: translateX(0) scale(1) !important;
+}
+
+/* Scale & Pop in */
+.reveal-scale {
+  opacity: 0;
+  transform: scale(0.92);
+  transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.reveal-scale.is-visible {
+  opacity: 1 !important;
+  transform: scale(1) !important;
+}
+
+/* 4. Cascading Stagger for Grids & Lists */
+.stagger-group > *:nth-child(1) { transition-delay: 0.05s; }
+.stagger-group > *:nth-child(2) { transition-delay: 0.15s; }
+.stagger-group > *:nth-child(3) { transition-delay: 0.25s; }
+.stagger-group > *:nth-child(4) { transition-delay: 0.35s; }
+.stagger-group > *:nth-child(5) { transition-delay: 0.45s; }
+.stagger-group > *:nth-child(6) { transition-delay: 0.55s; }
+
+/* 5. Interactive Hover Liftoff on Cards */
+.card-hover,
+.cards > .card,
+.solution-card,
+.pain-cards article,
+.workflow-cards > li,
+.brand-examples article,
+.simple-grid article {
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.35s ease !important;
+}
+
+.card-hover:hover,
+.cards > .card:hover,
+.solution-card:hover,
+.pain-cards article:hover,
+.workflow-cards > li:hover,
+.brand-examples article:hover,
+.simple-grid article:hover {
+  transform: translateY(-6px) !important;
+  box-shadow: 0 18px 42px rgba(114, 0, 0, 0.09) !important;
+  border-color: #c4b5a5 !important;
+}
+
+/* 6. Subtle Breathing / Floating Motion */
+@keyframes subtle-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+.float-subtle {
+  animation: subtle-float 5s ease-in-out infinite;
+}
+
+/* 7. Back To Top Floating Button */
+#back-to-top {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: #720000;
+  color: #F8F5F2;
+  border: 1px solid #993333;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  cursor: pointer;
+  z-index: 99999;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(16px) scale(0.9);
+  transition: opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              background 0.25s ease,
+              visibility 0.35s;
+  box-shadow: 0 8px 24px rgba(114, 0, 0, 0.32);
+}
+
+#back-to-top.is-active {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0) scale(1);
+}
+
+#back-to-top:hover {
+  background: #520000;
+  transform: translateY(-4px) scale(1.08);
+  box-shadow: 0 12px 30px rgba(114, 0, 0, 0.45);
+}
+
+#back-to-top svg {
+  width: 20px;
+  height: 20px;
+  fill: currentColor;
+  transition: transform 0.2s ease;
+}
+
+#back-to-top:hover svg {
+  transform: translateY(-2px);
+}
+
+/* 8. Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+  .reveal, .reveal-up, .reveal-blur, .reveal-left, .reveal-right, .reveal-scale {
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+    transition: none !important;
+  }
+  .float-subtle {
+    animation: none !important;
+  }
+}
