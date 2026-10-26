@@ -169,6 +169,7 @@
   </div>
 </div>
 
+<script src="/assets/order.js"></script>
 <script>
 function openCheckoutModal() {
   const m = document.getElementById('checkout-modal');
@@ -178,16 +179,25 @@ function closeCheckoutModal() {
   const m = document.getElementById('checkout-modal');
   if (m) m.style.display = 'none';
 }
-function handleCheckoutSubmit(e) {
+async function handleCheckoutSubmit(e) {
   e.preventDefault();
   const name = document.getElementById('order-name').value;
   const email = document.getElementById('order-email').value;
   const phone = document.getElementById('order-phone').value;
-  try {
-    localStorage.setItem('sia_order_name', name);
-    localStorage.setItem('sia_order_email', email);
-    localStorage.setItem('sia_order_phone', phone);
-  } catch(err){}
+  const btn = e.target.querySelector('button[type="submit"]');
+  if (btn) {
+    btn.disabled = true;
+    btn.innerText = 'Đang gửi thông tin...';
+  }
+  if (typeof submitToDatabase === 'function') {
+    await submitToDatabase({
+      name: name,
+      email: email,
+      phone: phone,
+      product: 'Xưởng Dựng Rảnh Tay (499k)',
+      note: 'Khách đặt mua trên landing page /xuong'
+    });
+  }
   window.location.href = '/xuong/cam-on';
 }
 document.querySelectorAll('a[href="#goi-mua"]').forEach(a => {

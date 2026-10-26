@@ -126,9 +126,22 @@ footer a{color:var(--wine);text-decoration:none}
   </div>
 </footer>
 
+<script src="/assets/order.js"></script>
 <script>
-document.getElementById('contact-form').onsubmit = function(e) {
+document.getElementById('contact-form').onsubmit = async function(e) {
   e.preventDefault();
+  const name = document.getElementById('c-name') ? document.getElementById('c-name').value : '';
+  const email = document.getElementById('c-email') ? document.getElementById('c-email').value : '';
+  const message = document.getElementById('c-message') ? document.getElementById('c-message').value : '';
+  if (typeof submitToDatabase === 'function') {
+    await submitToDatabase({
+      name: name,
+      email: email,
+      phone: '',
+      product: 'Liên hệ tư vấn',
+      note: message
+    });
+  }
   document.getElementById('contact-notice').style.display = 'block';
   document.getElementById('contact-form').reset();
 };
