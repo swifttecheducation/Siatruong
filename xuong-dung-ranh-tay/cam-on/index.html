@@ -266,27 +266,6 @@ function copyContent(btn) {
     const qrUrl = 'https://img.vietqr.io/image/TCB-19035012578015-compact2.png?amount=499000&addInfo=' + encodeURIComponent(syntax) + '&accountName=TRUONG%20THU%20UYEN';
     qrImg.src = qrUrl;
   }
-
-  // Double-safety: Gửi webhook dự phòng từ trang cảm ơn để chắc chắn 100% data vào sheet
-  const hasSent = sessionStorage.getItem('sia_lead_sent_' + cleanPhone);
-  const webhookUrl = window.SIA_WEBHOOK_URL || 'https://script.google.com/macros/s/AKfycbyraE7l3L_-uBaHGzKbDgjHZW6jRBpVyJdYeGpgQDeVGyG0BPSKGTZgh2IuzFJQEE38/exec';
-  if (cleanPhone && !hasSent) {
-    sessionStorage.setItem('sia_lead_sent_' + cleanPhone, '1');
-    fetch(webhookUrl, {
-      method: 'POST',
-      mode: 'no-cors',
-      keepalive: true,
-      headers: { 'Content-Type': 'text/plain;charset=utf-8' },
-      body: JSON.stringify({
-        timestamp: new Date().toLocaleString('vi-VN', { timeZone: 'Asia/Ho_Chi_Minh' }),
-        name: name || localStorage.getItem('sia_order_name') || 'Khách đặt mua',
-        phone: cleanPhone,
-        email: localStorage.getItem('sia_order_email') || '',
-        product: 'Xưởng Dựng Rảnh Tay (499k)',
-        note: 'Ghi nhận từ trang cảm ơn /cam-on'
-      })
-    }).catch(function(err){ console.warn(err); });
-  }
 })();
 </script>
 <script src="/assets/scroll-effects.js" defer></script>
