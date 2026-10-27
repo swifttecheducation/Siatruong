@@ -63,6 +63,95 @@ h1{font-size:clamp(46px,5.4vw,74px);color:var(--wine);letter-spacing:-.025em}
 footer{border-top:1px solid var(--line);padding:40px 0;display:flex;justify-content:space-between;align-items:center;font-size:13px;color:#6e655c}
 footer a{color:var(--wine);text-decoration:none}
 @media(max-width:850px){nav,main,footer{padding:0 20px}.hero{grid-template-columns:1fr;gap:40px;padding:48px 0}.eco-grid{grid-template-columns:1fr}.author-preview{grid-template-columns:1fr;padding:32px 24px;gap:32px}.ribbon{flex-direction:column;gap:12px}footer{flex-direction:column;gap:16px;text-align:center}}
+
+/* Beta Countdown Banner */
+.beta-banner {
+  background: #720000;
+  color: #F8F5F2;
+  font-family: 'Be Vietnam Pro', -apple-system, sans-serif;
+  font-size: 13px;
+  line-height: 1.4;
+  padding: 9px 16px;
+  position: relative;
+  z-index: 100;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+.beta-banner-content {
+  max-width: 1240px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px 14px;
+  text-align: center;
+}
+.beta-banner-text {
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+.beta-sep {
+  opacity: 0.5;
+  user-select: none;
+}
+.beta-timer-wrap {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.beta-timer-label {
+  font-weight: 400;
+  opacity: 0.9;
+}
+.beta-countdown {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-variant-numeric: tabular-nums;
+}
+.cd-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  background: rgba(255, 255, 255, 0.14);
+  padding: 3px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  color: #F8F5F2;
+}
+.cd-item strong {
+  font-family: 'Be Vietnam Pro', sans-serif;
+  font-weight: 700;
+  font-size: 13.5px;
+  color: #ffffff;
+  min-width: 17px;
+  text-align: center;
+}
+.cd-item small {
+  font-size: 11px;
+  opacity: 0.85;
+}
+@media (max-width: 768px) {
+  .beta-banner {
+    padding: 8px 12px;
+    font-size: 12px;
+  }
+  .beta-sep {
+    display: none;
+  }
+  .beta-banner-content {
+    flex-direction: column;
+    gap: 6px;
+  }
+  .cd-item {
+    padding: 2px 6px;
+    font-size: 11px;
+  }
+  .cd-item strong {
+    font-size: 12px;
+  }
+}
+
 </style>
   <link rel="stylesheet" href="/assets/scroll-effects.css">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
@@ -72,8 +161,22 @@ footer a{color:var(--wine);text-decoration:none}
 </head>
 <body>
 
-<div class="top-notice">
-  Xưởng Dựng Rảnh Tay mở bán Beta 28–31/10 · Giá ưu đãi 499.000đ · <a href="/xuong-dung-ranh-tay">Khám phá Xưởng ngay →</a>
+<div class="beta-banner" aria-label="Thông báo mở bán Beta">
+  <div class="beta-banner-content">
+    <span class="beta-banner-text">Mở bán đợt Beta: 28/10–31/10 · Số lượng giới hạn ưu đãi 499.000đ</span>
+    <span class="beta-sep" aria-hidden="true">·</span>
+    <span class="beta-timer-wrap">
+      <span class="beta-timer-label">Còn lại:</span>
+      <span class="beta-countdown" id="beta-timer">
+        <span class="cd-item"><strong id="cd-days">00</strong><small>ngày</small></span>
+        <span class="cd-item"><strong id="cd-hours">00</strong><small>giờ</small></span>
+        <span class="cd-item"><strong id="cd-mins">00</strong><small>phút</small></span>
+        <span class="cd-item"><strong id="cd-secs">00</strong><small>giây</small></span>
+      </span>
+    </span>
+    <span class="beta-sep" aria-hidden="true">·</span>
+    <a href="/xuong-dung-ranh-tay" style="color:#FAE67A;font-weight:600;text-decoration:underline;text-underline-offset:3px">Khám phá Xưởng ngay →</a>
+  </div>
 </div>
 
 <nav><a href="/" class="brand" title="Sia Truong"><img src="/assets/logo.svg" alt="Sia Truong" class="site-logo"><small>Hệ thống nội dung tự động</small></a><div class="navlinks"><a href="/">Trang chủ</a><a href="/ve-sia">Về Sia</a><a href="/xuong-dung-ranh-tay">Xưởng Dựng AI</a><a href="/xuong-dung-ranh-tay/phong-cach">Thư viện phong cách</a><a href="/qua-tang/he-thong-san-xuat-noi-dung-tu-dong">Quà tặng</a><a href="/lien-he">Liên hệ</a><a href="/xuong-dung-ranh-tay" class="navcta">Mở Xưởng</a></div></nav>
@@ -191,5 +294,37 @@ footer a{color:var(--wine);text-decoration:none}
 </footer>
 
   <script src="/assets/scroll-effects.js" defer></script>
+<script>
+(function() {
+  const target = new Date('2026-10-31T23:59:59+07:00').getTime();
+  const dEl = document.getElementById('cd-days');
+  const hEl = document.getElementById('cd-hours');
+  const mEl = document.getElementById('cd-mins');
+  const sEl = document.getElementById('cd-secs');
+  if (!dEl || !hEl || !mEl || !sEl) return;
+
+  function update() {
+    const now = Date.now();
+    let diff = target - now;
+    if (diff <= 0) {
+      diff = 0;
+      const wrap = document.querySelector('.beta-timer-wrap');
+      if (wrap) wrap.innerHTML = '<span style="color:#FAE67A;font-weight:600">Đợt mở bán Beta đã kết thúc</span>';
+      return;
+    }
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+    const mins = Math.floor((diff / (1000 * 60)) % 60);
+    const secs = Math.floor((diff / 1000) % 60);
+
+    dEl.textContent = String(days).padStart(2, '0');
+    hEl.textContent = String(hours).padStart(2, '0');
+    mEl.textContent = String(mins).padStart(2, '0');
+    sEl.textContent = String(secs).padStart(2, '0');
+  }
+  update();
+  setInterval(update, 1000);
+})();
+</script>
 </body>
 </html>
