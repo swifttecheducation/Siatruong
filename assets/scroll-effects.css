@@ -189,7 +189,23 @@ nav.sticky-glass {
   transform: translateY(-2px);
 }
 
-/* 8. Reduced Motion Support */
+/* 9. Brand Logo Styles */
+.site-logo {
+  height: 32px;
+  width: auto;
+  max-width: 150px;
+  display: block;
+  transition: transform 0.25s ease;
+}
+.brand:hover .site-logo, .wordmark:hover .site-logo {
+  transform: scale(1.03);
+}
+@media (max-width: 650px) {
+  .site-logo {
+    height: 26px;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .reveal, .reveal-up, .reveal-blur, .reveal-left, .reveal-right, .reveal-scale {
     opacity: 1 !important;
