@@ -16,20 +16,7 @@
   box-shadow: 0 0 10px rgba(114, 0, 0, 0.4);
 }
 
-/* 2. Sticky Glass Header on Scroll */
-nav.sticky-glass {
-  position: sticky !important;
-  top: 0 !important;
-  z-index: 9999 !important;
-  background: rgba(248, 245, 242, 0.92) !important;
-  backdrop-filter: blur(14px) !important;
-  -webkit-backdrop-filter: blur(14px) !important;
-  border-bottom: 1px solid rgba(222, 213, 204, 0.85) !important;
-  box-shadow: 0 10px 30px rgba(48, 43, 40, 0.05) !important;
-  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1) !important;
-}
-
-/* 3. Diverse Scroll Reveal Animations */
+/* 2. Diverse Scroll Reveal Animations */
 
 /* Default Fade Up */
 .reveal, .reveal-up {

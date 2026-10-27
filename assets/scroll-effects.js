@@ -10,10 +10,7 @@
   progressBar.id = 'scroll-progress';
   document.body.appendChild(progressBar);
 
-  // 2. Navbar Sticky Glassmorphism
-  const nav = document.querySelector('nav');
-
-  // 3. Smooth Scroll Tracking using requestAnimationFrame (120fps / 60fps)
+  // 2. Smooth Scroll Tracking using requestAnimationFrame (120fps / 60fps)
   let ticking = false;
   function onScroll() {
     if (!ticking) {
@@ -24,15 +21,6 @@
         
         // Update Progress Bar
         progressBar.style.width = scrollPercent + '%';
-
-        // Toggle Glass Navbar
-        if (nav) {
-          if (scrollTop > 25) {
-            nav.classList.add('sticky-glass');
-          } else {
-            nav.classList.remove('sticky-glass');
-          }
-        }
 
         ticking = false;
       });
