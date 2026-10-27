@@ -129,7 +129,8 @@ footer{padding:48px 0 20px;color:var(--muted);font-size:14px}
 }
 @media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto} .tray,.toast{transition:none} }
 </style>
-<link rel="stylesheet" href="siatruong.css">  <link rel="stylesheet" href="/assets/scroll-effects.css">
+<link rel="stylesheet" href="siatruong.css">
+  <link rel="stylesheet" href="/assets/scroll-effects.css">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="icon" href="/favicon.ico" sizes="any">
   <link rel="apple-touch-icon" href="/icon-180.png">
@@ -137,7 +138,7 @@ footer{padding:48px 0 20px;color:var(--muted);font-size:14px}
 </head>
 <body>
 <nav class="site-nav wrap" style="display:flex;justify-content:space-between;align-items:center;padding:20px 16px;border-bottom:1px solid var(--line);margin-bottom:24px;flex-wrap:wrap;gap:14px;">
-  <a href="/" class="brand" title="Sia Truong"><img src="/assets/logo.svg" alt="Sia Truong" class="site-logo"></a>
+  <a href="/" class="brand" title="Sia Truong"><img src="/assets/logo.svg" alt="Sia Truong" class="site-logo" style="height:38px;width:auto;"></a>
   <div style="display:flex;gap:20px;font-size:13px;align-items:center;flex-wrap:wrap">
     <a href="/" style="text-decoration:none;color:var(--muted)">Trang chủ</a>
     <a href="/xuong" style="text-decoration:none;color:var(--ink);font-weight:600;padding:6px 14px;background:var(--accent);border-radius:20px">← Về Xưởng Dựng</a>
@@ -146,27 +147,17 @@ footer{padding:48px 0 20px;color:var(--muted);font-size:14px}
     <a href="/lien-he" style="text-decoration:none;color:var(--muted)">Liên hệ</a>
   </div>
 </nav>
-
 <header class="wrap">
-  <div class="brand">SiaTruong / Xưởng Dựng Rảnh Tay</div>
-  <h1><b>Chọn gu của bạn.</b>Xưởng dựng theo.</h1>
-  <p class="lede"><strong id="count">phong cách video</strong> để áp dụng cho nội dung của bạn. Chọn các kiểu bạn thích, sao chép yêu cầu rồi gửi cùng video vào AI Agent (Gemini, Codex, Claude Code…).</p>
+  
+  <h1><b>Video của bạn.</b>Thêm cách thể hiện.</h1>
+  <p class="lede"><strong id="count">phong cách video</strong> để bạn chọn, phối và sao chép thành yêu cầu dựng. Một thư viện miễn phí để diễn đạt rõ hơn điều bạn muốn AI làm với video của mình.</p>
   <div class="cta">
     <a class="btn primary" href="#how">Cách dùng</a>
     <a class="btn" href="#cats">Chọn phong cách</a>
   </div>
 </header>
 
-<section class="wrap sec" id="how">
-  <h2>Chọn gu. <i>Giao Xưởng.</i></h2>
-  <p>Dùng AI Agent có khả năng đọc tệp và xử lý video, như Gemini, Codex, Claude Code… Tính năng tùy công cụ và môi trường bạn sử dụng.</p>
-  <div class="how">
-    <div class="step"><div class="n">1</div><h3>Cài bộ phong cách</h3><p>Kéo tệp ZIP vào AI Agent (Gemini, Codex, Claude Code…) và nhắn “Cài skill này giúp tôi”. Thư viện phong cách và hướng dẫn được lưu trên máy của bạn.</p></div>
-    <div class="step"><div class="n">2</div><h3>Mở thư viện bất cứ lúc nào</h3><p>Nhắn “Mở thư viện phong cách”. AI Agent mở trang này trong trình duyệt. Chọn các phong cách rồi sao chép yêu cầu dựng.</p><pre>Mở thư viện phong cách</pre></div>
-    <div class="step"><div class="n">3</div><h3>Quay video của bạn</h3><p>Quay dọc, đủ sáng, chừa khoảng nền trống trên đầu. Có thể nói lại từng câu; khi gửi yêu cầu, nhờ AI Agent giữ lượt nói cuối rõ ràng nhất.</p></div>
-    <div class="step"><div class="n">4</div><h3>Gửi yêu cầu dựng</h3><p>Dán bộ phong cách đã chọn vào AI Agent, gửi video rồi ghi yêu cầu như đang giao việc cho người dựng.</p><pre>Dựng video ~/Downloads/raw.mp4 theo H10 C9 L4 X1 M1 S2</pre></div>
-  </div>
-</section>
+<section class="wrap sec" id="how"><h2>Thử với <i>AI bạn đang dùng.</i></h2><p>Bạn có thể dùng các mô tả ở đây với AI Agent của mình. Khả năng dựng và xuất video phụ thuộc công cụ, các phần mềm đã cài và cách bạn thiết lập.</p><div class="how"><div class="step"><div class="n">1</div><h3>Quay video của bạn</h3><p>Quay dọc, đủ sáng và chừa khoảng trống phía trên đầu để đặt tiêu đề.</p></div><div class="step"><div class="n">2</div><h3>Chọn cách thể hiện</h3><p>Chọn kiểu mở đầu, phụ đề, bố cục và hiệu ứng bên dưới. Phối những phần hợp với nội dung của bạn.</p></div><div class="step"><div class="n">3</div><h3>Sao chép yêu cầu</h3><p>Bấm “Sao chép yêu cầu” rồi gửi cùng video cho AI Agent (Gemini, Codex, Claude Code…). Nếu đã có bộ cài, kéo tệp ZIP vào và nhắn “Cài đặt giúp tôi”.</p></div><div class="step"><div class="n">4</div><h3>Xem trước rồi chỉnh</h3><p>Nhờ AI lên kế hoạch trước khi dựng. Xem lại vị trí chữ, nhịp cắt và nội dung trước khi xuất.</p><pre>Dựng video theo H10 C9 L4 X1 M1 S2</pre></div></div></section><section class="wrap library-workshop"><div><h2>Có gu rồi.<br><i>Còn phần dựng thì sao?</i></h2><p>Thư viện giúp bạn nói rõ mình muốn video trông thế nào. Còn để ra thành phẩm, AI cần có quy trình và công cụ xử lý video.</p><p><strong>Dùng cùng Xưởng</strong>, bạn có sẵn quy trình đưa clip vào, gửi yêu cầu và duyệt bản dựng. Xưởng chuẩn bị REEL, CAROUSEL và STORY; bản dựng CapCut giữ video, chữ và âm thanh trên các lớp riêng để bạn chỉnh tiếp.</p><p>Thay vì tự ghép các bước xử lý từ đầu, bạn bắt đầu từ một bộ công cụ đã được chuẩn bị sẵn, rồi xem lại và chỉnh cho đúng ý mình.</p><a class="btn primary" href="/xuong#quy-trinh">Xem demo dùng Xưởng →</a></div><div class="library-workshop-demo"><video controls playsinline preload="none" poster="/media/real/workflow-capcut-v2.jpg" aria-label="Demo chỉnh bản dựng Xưởng trong CapCut"><source src="/media/real/workflow-capcut-v2.mp4" type="video/mp4"></video><p>Bản dựng có thể mở và chỉnh tiếp trong CapCut.</p></div></section>
 
 
 <nav class="bar" aria-label="Nhóm phong cách">
@@ -276,6 +267,6 @@ footer{padding:48px 0 20px;color:var(--muted);font-size:14px}
   render();
 })();
 </script>
-  <script src="/assets/scroll-effects.js" defer></script>
+<script src="/assets/scroll-effects.js" defer></script>
 </body>
 </html>

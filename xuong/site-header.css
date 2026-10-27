@@ -1,0 +1,14 @@
+
+.sia-site-header{position:relative;z-index:20;background:#F8F5F2;color:#302b28;width:100%;font-family:'Be Vietnam Pro',Inter,system-ui,sans-serif;border-bottom:1px solid #ded5cc}
+.sia-site-header .sia-header-inner{max-width:1240px;margin:0 auto;padding:20px 40px;display:flex;align-items:center;justify-content:space-between;gap:32px}
+.sia-site-header .sia-header-logo{font:600 30px/1.2 Alegreya,Georgia,serif;letter-spacing:-.02em;color:#720000;text-decoration:none;white-space:nowrap}
+.sia-site-header .sia-site-menu{display:flex;align-items:center;justify-content:flex-end;gap:24px;margin:0;padding:0;border:0;background:transparent}
+.sia-site-header .sia-site-menu a{font:400 14px/24px 'Be Vietnam Pro',Inter,system-ui,sans-serif;letter-spacing:0;color:#302b28;text-decoration:none;white-space:nowrap;padding:4px 0}
+.sia-site-header .sia-site-menu a:hover,.sia-site-header .sia-site-menu a[aria-current=page]{color:#720000;text-decoration:underline;text-underline-offset:6px}
+.sia-site-header .sia-site-menu .sia-style-link{color:#635b55;font-size:12px}
+.sia-site-header .sia-menu-toggle{display:none;font:500 14px/24px 'Be Vietnam Pro',sans-serif;color:#720000;background:transparent;border:0;padding:8px;cursor:pointer}
+.sia-site-header a:focus-visible,.sia-site-header button:focus-visible{outline:2px solid #720000;outline-offset:5px}
+@media(max-width:850px){.sia-site-header .sia-header-inner{padding:16px 20px;flex-wrap:wrap;gap:0}.sia-site-header .sia-header-logo{font-size:28px}.sia-site-header .sia-menu-toggle{display:flex;align-items:center;gap:12px}.sia-site-header .sia-site-menu{display:none;width:100%;align-items:stretch;flex-direction:column;gap:4px;padding-top:16px}.sia-site-header .sia-site-menu.is-open{display:flex}.sia-site-header .sia-site-menu a{padding:10px 0;font-size:16px}.sia-site-header .sia-site-menu .sia-style-link{font-size:14px}}
+@media print{.sia-site-header{display:none}}
+
+header.sia-site-header{padding:0;margin:0;text-align:left;max-width:none;box-shadow:none;border-radius:0}header.sia-site-header .sia-header-inner{box-sizing:border-box}

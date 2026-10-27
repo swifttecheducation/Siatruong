@@ -1,1 +1,17 @@
-{"cleanUrls": true}
+{
+  "cleanUrls": true,
+  "rewrites": [
+    {
+      "source": "/xuong/media/:match*",
+      "destination": "/media/:match*"
+    },
+    {
+      "source": "/gift/media/:match*",
+      "destination": "/media/:match*"
+    },
+    {
+      "source": "/xuong/fonts/:match*",
+      "destination": "/fonts/:match*"
+    }
+  ]
+}
