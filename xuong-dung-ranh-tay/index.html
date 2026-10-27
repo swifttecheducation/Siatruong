@@ -487,7 +487,7 @@
       </div>
 
       <button type="submit" style="width:100%;background:#720000;color:#fff;border:none;padding:16px;border-radius:6px;font:500 15px 'Be Vietnam Pro',sans-serif;cursor:pointer;transition:background .2s">
-        Xác Nhận Đặt Mua & Đến Trang Kích Hoạt →
+        Xác Nhận Đặt Mua & Đến Trang Thanh Toán →
       </button>
 
     </form>
@@ -553,7 +553,8 @@ async function handleCheckoutSubmit(e) {
   }
 
   // 3. Chuyển hướng ngay sang trang cảm ơn & thanh toán
-  window.location.href = '/xuong-dung-ranh-tay/cam-on';
+  const cleanPhone = phone.replace(/[^0-9]/g, '');
+  window.location.href = '/xuong-dung-ranh-tay/cam-on?phone=' + encodeURIComponent(cleanPhone) + '&name=' + encodeURIComponent(name);
 }
 document.querySelectorAll('a[href="#goi-mua"]').forEach(a => {
   a.addEventListener('click', function(e) {
