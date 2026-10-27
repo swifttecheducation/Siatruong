@@ -506,23 +506,53 @@ function closeCheckoutModal() {
 }
 async function handleCheckoutSubmit(e) {
   e.preventDefault();
-  const name = document.getElementById('order-name').value;
-  const email = document.getElementById('order-email').value;
-  const phone = document.getElementById('order-phone').value;
+  const nameEl = document.getElementById('order-name');
+  const emailEl = document.getElementById('order-email');
+  const phoneEl = document.getElementById('order-phone');
   const btn = e.target.querySelector('button[type="submit"]');
+
+  const name = nameEl ? nameEl.value.trim() : '';
+  const email = emailEl ? emailEl.value.trim() : '';
+  const phone = phoneEl ? phoneEl.value.trim() : '';
+
+  if (!name || !email || !phone) {
+    alert('Vui lòng điền đầy đủ Họ tên, Số điện thoại và Email.');
+    return;
+  }
+
   if (btn) {
     btn.disabled = true;
-    btn.innerText = 'Đang gửi thông tin...';
+    btn.style.opacity = '0.7';
+    btn.innerText = 'Đang xử lý đặt hàng...';
   }
-  if (typeof submitToDatabase === 'function') {
-    await submitToDatabase({
-      name: name,
-      email: email,
-      phone: phone,
-      product: 'Xưởng Dựng Rảnh Tay (499k)',
-      note: 'Khách đặt mua trên landing page /xuong-dung-ranh-tay'
-    });
+
+  // 1. Lưu ngay vào localStorage
+  try {
+    localStorage.setItem('sia_order_name', name);
+    localStorage.setItem('sia_order_email', email);
+    localStorage.setItem('sia_order_phone', phone);
+  } catch(err) {}
+
+  // 2. Gửi dữ liệu vào Google Sheets (tối đa 1.5s timeout để không bao giờ làm đơ trải nghiệm khách)
+  try {
+    if (typeof submitToDatabase === 'function') {
+      const sendPromise = submitToDatabase({
+        name: name,
+        email: email,
+        phone: phone,
+        product: 'Xưởng Dựng Rảnh Tay (499k)',
+        note: 'Khách đặt mua trên landing page /xuong-dung-ranh-tay'
+      });
+      await Promise.race([
+        sendPromise,
+        new Promise(resolve => setTimeout(resolve, 1500))
+      ]);
+    }
+  } catch(err) {
+    console.warn('Lỗi gửi đơn:', err);
   }
+
+  // 3. Chuyển hướng ngay sang trang cảm ơn & thanh toán
   window.location.href = '/xuong-dung-ranh-tay/cam-on';
 }
 document.querySelectorAll('a[href="#goi-mua"]').forEach(a => {
