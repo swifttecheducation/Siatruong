@@ -189,20 +189,51 @@ nav.sticky-glass {
   transform: translateY(-2px);
 }
 
-/* 9. Brand Logo Styles */
+/* 9. Brand Logo & Mobile Navbar Optimization */
 .site-logo {
   height: 32px;
   width: auto;
-  max-width: 150px;
+  max-width: 155px;
   display: block;
   transition: transform 0.25s ease;
 }
 .brand:hover .site-logo, .wordmark:hover .site-logo {
   transform: scale(1.03);
 }
-@media (max-width: 650px) {
+
+@media (max-width: 768px) {
+  nav {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 14px !important;
+    padding: 16px 20px !important;
+  }
+  .brand {
+    display: block !important;
+  }
   .site-logo {
-    height: 26px;
+    height: 28px !important;
+  }
+  .navlinks {
+    width: 100% !important;
+    overflow-x: auto !important;
+    white-space: nowrap !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 14px !important;
+    padding: 4px 0 6px !important;
+    scrollbar-width: none !important;
+    -webkit-overflow-scrolling: touch !important;
+  }
+  .navlinks::-webkit-scrollbar {
+    display: none !important;
+  }
+  .navlinks a {
+    font-size: 13px !important;
+    flex-shrink: 0 !important;
+  }
+  .navlinks .navcta {
+    margin-left: auto !important;
   }
 }
 
