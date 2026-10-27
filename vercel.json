@@ -1,17 +1,37 @@
 {
   "cleanUrls": true,
+  "redirects": [
+    {
+      "source": "/xuong",
+      "destination": "/xuong-dung-ranh-tay",
+      "permanent": true
+    },
+    {
+      "source": "/xuong/:match*",
+      "destination": "/xuong-dung-ranh-tay/:match*",
+      "permanent": true
+    }
+  ],
   "rewrites": [
+    {
+      "source": "/xuong-dung-ranh-tay/media/:match*",
+      "destination": "/media/:match*"
+    },
+    {
+      "source": "/xuong-dung-ranh-tay/fonts/:match*",
+      "destination": "/fonts/:match*"
+    },
     {
       "source": "/xuong/media/:match*",
       "destination": "/media/:match*"
     },
     {
-      "source": "/gift/media/:match*",
-      "destination": "/media/:match*"
-    },
-    {
       "source": "/xuong/fonts/:match*",
       "destination": "/fonts/:match*"
+    },
+    {
+      "source": "/gift/media/:match*",
+      "destination": "/media/:match*"
     }
   ]
 }
