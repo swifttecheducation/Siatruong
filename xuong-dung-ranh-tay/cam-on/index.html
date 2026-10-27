@@ -151,6 +151,10 @@ footer a{color:#720000;text-decoration:none}
           <div class="pay-note">
             💡 <em>Vui lòng giữ nguyên nội dung chuyển khoản để hệ thống tự động nhận diện và gửi mã nguồn, tài khoản kích hoạt vào email của bạn ngay lập tức.</em>
           </div>
+
+          <button type="button" onclick="showTransferSuccessModal()" style="width:100%;margin-top:6px;background:#720000;color:#fff;border:none;padding:15px;border-radius:8px;font:600 15px 'Be Vietnam Pro',sans-serif;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;transition:background .2s">
+            ✓ Tôi đã chuyển khoản thành công
+          </button>
         </div>
       </div>
     </div>
@@ -203,7 +207,32 @@ footer a{color:#720000;text-decoration:none}
   Sia Truong · <a href="mailto:yourfavoritesia@gmail.com">yourfavoritesia@gmail.com</a> · <a href="/">Trang chủ</a> · <a href="/chinh-sach-bao-mat">Chính sách bảo mật</a> · <a href="/dieu-khoan">Điều khoản</a>
 </footer>
 
+<!-- MODAL XÁC NHẬN CHUYỂN KHOẢN -->
+<div id="transfer-modal" style="display:none;position:fixed;inset:0;background:rgba(30,27,24,.75);backdrop-filter:blur(4px);z-index:9999;align-items:center;justify-content:center;padding:20px;">
+  <div style="background:#F8F5F2;border:1px solid #ded5cc;border-radius:16px;max-width:480px;width:100%;padding:36px;box-shadow:0 20px 50px rgba(0,0,0,.25);position:relative;text-align:center;">
+    <button onclick="document.getElementById('transfer-modal').style.display='none'" style="position:absolute;top:16px;right:16px;background:#eee8e1;border:none;width:32px;height:32px;border-radius:50%;font-size:18px;cursor:pointer;color:#302b28;display:grid;place-items:center;">&times;</button>
+    <div style="width:52px;height:52px;border-radius:50%;background:#e4e7dc;color:#37432d;display:grid;place-items:center;font-size:24px;margin:0 auto 16px;">✓</div>
+    <h3 style="font:500 26px Alegreya,serif;color:#720000;margin:0 0 12px">Sia đã nhận thông tin!</h3>
+    <p style="font-size:14px;color:#635b55;line-height:1.6;margin:0 0 20px">
+      Cảm ơn bạn đã hoàn tất chuyển khoản. Hệ thống đang đối soát và gửi toàn bộ mã nguồn Xưởng Dựng AI cùng tài khoản học tập vào email của bạn trong ít phút tới.
+    </p>
+    <div style="background:#fff;border:1px solid #ded5cc;border-radius:8px;padding:12px 16px;margin-bottom:20px;font-size:13px;color:#302b28;text-align:left">
+      📬 <strong>Hãy kiểm tra hộp thư đến</strong> (và cả mục Spam/Quảng cáo).
+    </div>
+    <div style="display:flex;gap:12px;justify-content:center">
+      <a href="mailto:yourfavoritesia@gmail.com?subject=X%C3%A1c%20nh%E1%BA%ADn%20chuy%E1%BB%83n%20kho%E1%BA%A3n%20X%C6%B0%E1%BB%9Fng%20D%E1%BB%B1ng%20R%E1%BA%A3nh%20Tay" style="background:#720000;color:#fff;padding:12px 24px;border-radius:6px;font-size:13px;font-weight:500;text-decoration:none">Nhắn tin cho Sia nếu cần gấp</a>
+      <button onclick="document.getElementById('transfer-modal').style.display='none'" style="background:#eee8e1;border:1px solid #ded5cc;color:#302b28;padding:12px 20px;border-radius:6px;font-size:13px;font-weight:500;cursor:pointer">Đóng</button>
+    </div>
+  </div>
+</div>
+
+<script src="/assets/order.js"></script>
 <script>
+function showTransferSuccessModal() {
+  const m = document.getElementById('transfer-modal');
+  if (m) m.style.display = 'flex';
+}
+
 function copyValue(val, btn) {
   navigator.clipboard.writeText(val).then(() => {
     const orig = btn.innerText;
@@ -226,6 +255,7 @@ function copyContent(btn) {
 (function initPayment() {
   const urlParams = new URLSearchParams(window.location.search);
   const phone = urlParams.get('phone') || localStorage.getItem('sia_order_phone') || '';
+  const name = urlParams.get('name') || localStorage.getItem('sia_order_name') || '';
   const cleanPhone = phone.replace(/[^0-9]/g, '');
   const syntax = cleanPhone ? ('XUONG ' + cleanPhone) : 'XUONG';
   
@@ -236,6 +266,27 @@ function copyContent(btn) {
   if (qrImg) {
     const qrUrl = 'https://img.vietqr.io/image/TCB-19035012578015-compact2.png?amount=499000&addInfo=' + encodeURIComponent(syntax) + '&accountName=TRUONG%20THU%20UYEN';
     qrImg.src = qrUrl;
+  }
+
+  // Double-safety: Gửi webhook dự phòng từ trang cảm ơn để chắc chắn 100% data vào sheet
+  const hasSent = sessionStorage.getItem('sia_lead_sent_' + cleanPhone);
+  const webhookUrl = window.SIA_WEBHOOK_URL || 'https://script.google.com/macros/s/AKfycbyraE7l3L_-uBaHGzKbDgjHZW6jRBpVyJdYeGpgQDeVGyG0BPSKGTZgh2IuzFJQEE38/exec';
+  if (cleanPhone && !hasSent) {
+    sessionStorage.setItem('sia_lead_sent_' + cleanPhone, '1');
+    fetch(webhookUrl, {
+      method: 'POST',
+      mode: 'no-cors',
+      keepalive: true,
+      headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+      body: JSON.stringify({
+        timestamp: new Date().toLocaleString('vi-VN', { timeZone: 'Asia/Ho_Chi_Minh' }),
+        name: name || localStorage.getItem('sia_order_name') || 'Khách đặt mua',
+        phone: cleanPhone,
+        email: localStorage.getItem('sia_order_email') || '',
+        product: 'Xưởng Dựng Rảnh Tay (499k)',
+        note: 'Ghi nhận từ trang cảm ơn /cam-on'
+      })
+    }).catch(function(err){ console.warn(err); });
   }
 })();
 </script>

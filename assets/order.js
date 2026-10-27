@@ -31,6 +31,7 @@ async function submitToDatabase(data) {
       await fetch(window.SIA_WEBHOOK_URL, {
         method: 'POST',
         mode: 'no-cors',
+        keepalive: true,
         headers: {
           'Content-Type': 'text/plain;charset=utf-8'
         },
