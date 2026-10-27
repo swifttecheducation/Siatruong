@@ -10,21 +10,10 @@
   progressBar.id = 'scroll-progress';
   document.body.appendChild(progressBar);
 
-  // 2. Inject Back to Top Button
-  const backToTop = document.createElement('button');
-  backToTop.id = 'back-to-top';
-  backToTop.setAttribute('aria-label', 'Cuộn lên đầu trang');
-  backToTop.innerHTML = '<svg viewBox="0 0 24 24"><path d="M12 4l-8 8h5v8h6v-8h5z"/></svg>';
-  document.body.appendChild(backToTop);
-
-  backToTop.addEventListener('click', function() {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  });
-
-  // 3. Navbar Sticky Glassmorphism
+  // 2. Navbar Sticky Glassmorphism
   const nav = document.querySelector('nav');
 
-  // 4. Smooth Scroll Tracking using requestAnimationFrame (120fps / 60fps)
+  // 3. Smooth Scroll Tracking using requestAnimationFrame (120fps / 60fps)
   let ticking = false;
   function onScroll() {
     if (!ticking) {
@@ -35,13 +24,6 @@
         
         // Update Progress Bar
         progressBar.style.width = scrollPercent + '%';
-
-        // Toggle Back-To-Top Button
-        if (scrollTop > 380) {
-          backToTop.classList.add('is-active');
-        } else {
-          backToTop.classList.remove('is-active');
-        }
 
         // Toggle Glass Navbar
         if (nav) {
