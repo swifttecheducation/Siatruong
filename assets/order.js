@@ -3,7 +3,7 @@ window.SIA_WEBHOOK_URL = window.SIA_WEBHOOK_URL || 'https://script.google.com/ma
 
 /**
  * Gửi dữ liệu khách hàng vào Google Sheets Database và lưu dự phòng
- * @param {Object} data - { name, email, phone, product, note }
+ * @param {Object} data - { name, email, phone, referral_by, product, note }
  */
 async function submitToDatabase(data) {
   const payload = {
@@ -11,6 +11,7 @@ async function submitToDatabase(data) {
     name: data.name || '',
     email: data.email || '',
     phone: data.phone || '',
+    referral_by: data.referral_by || data.referralCode || data.ref || '',
     product: data.product || 'Xưởng Dựng Rảnh Tay',
     note: data.note || ''
   };
@@ -23,6 +24,9 @@ async function submitToDatabase(data) {
     localStorage.setItem('sia_order_name', payload.name);
     localStorage.setItem('sia_order_email', payload.email);
     localStorage.setItem('sia_order_phone', payload.phone);
+    if (payload.referral_by) {
+      localStorage.setItem('sia_order_ref', payload.referral_by);
+    }
   } catch(e) {}
 
   // 2. Gửi về Google Sheets Webhook

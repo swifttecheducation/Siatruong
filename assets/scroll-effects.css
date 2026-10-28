@@ -16,7 +16,20 @@
   box-shadow: 0 0 10px rgba(114, 0, 0, 0.4);
 }
 
-/* 2. Diverse Scroll Reveal Animations */
+/* 2. Sticky Clean Navbar (Solid Ivory, zero backdrop blur/gradient leak) */
+nav:not(.gift-nav):not(.bar) {
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 1000 !important;
+  background-color: #F8F5F2 !important;
+  border-bottom: 1px solid #ded5cc !important;
+  box-shadow: 0 0 0 100vmax #F8F5F2 !important;
+  clip-path: inset(0 -100vmax 0 -100vmax) !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+/* 3. Diverse Scroll Reveal Animations */
 
 /* Default Fade Up */
 .reveal, .reveal-up {
