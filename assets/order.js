@@ -3,16 +3,19 @@ window.SIA_WEBHOOK_URL = window.SIA_WEBHOOK_URL || 'https://script.google.com/ma
 
 /**
  * Gửi dữ liệu khách hàng vào Google Sheets Database và lưu dự phòng
- * @param {Object} data - { name, email, phone, referral_by, product, note }
+ * @param {Object} data - { name, email, phone, referral_by, product, note, type }
  */
 async function submitToDatabase(data) {
+  const prod = data.product || 'Xưởng Dựng Rảnh Tay';
+  const inferredType = data.type || (prod.toLowerCase().includes('quà') ? 'freebie' : (prod.toLowerCase().includes('liên hệ') ? 'contact' : 'order'));
   const payload = {
     timestamp: new Date().toLocaleString('vi-VN', { timeZone: 'Asia/Ho_Chi_Minh' }),
+    type: inferredType,
     name: data.name || '',
     email: data.email || '',
     phone: data.phone || '',
     referral_by: data.referral_by || data.referralCode || data.ref || '',
-    product: data.product || 'Xưởng Dựng Rảnh Tay',
+    product: prod,
     note: data.note || ''
   };
 
