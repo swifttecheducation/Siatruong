@@ -153,7 +153,7 @@ footer a{color:var(--wine);text-decoration:none}
 
 <div class="beta-banner" aria-label="Thông báo mở bán Beta">
   <div class="beta-banner-content">
-    <span class="beta-banner-text">Mở bán đợt Beta: 28/10–31/10 · Số lượng giới hạn ưu đãi 499.000đ</span>
+    <span class="beta-banner-text">Ưu đãi tuần này: 499.000đ · Sang tuần chính thức tăng lên 699.000đ</span>
     <span class="beta-sep" aria-hidden="true">·</span>
     <span class="beta-timer-wrap">
       <span class="beta-timer-label">Còn lại:</span>
@@ -283,7 +283,7 @@ footer a{color:var(--wine);text-decoration:none}
   <script src="/assets/scroll-effects.js" defer></script>
 <script>
 (function() {
-  const target = new Date('2026-10-31T23:59:59+07:00').getTime();
+  const target = new Date('2026-11-08T23:59:59+07:00').getTime();
   const dEl = document.getElementById('cd-days');
   const hEl = document.getElementById('cd-hours');
   const mEl = document.getElementById('cd-mins');
@@ -296,7 +296,7 @@ footer a{color:var(--wine);text-decoration:none}
     if (diff <= 0) {
       diff = 0;
       const wrap = document.querySelector('.beta-timer-wrap');
-      if (wrap) wrap.innerHTML = '<span style="color:#FAE67A;font-weight:600">Đợt mở bán Beta đã kết thúc</span>';
+      if (wrap) wrap.innerHTML = '<span style="color:#FAE67A;font-weight:600">Ưu đãi 499k tuần này đã kết thúc</span>';
       return;
     }
     const days = Math.floor(diff / (1000 * 60 * 60 * 24));
