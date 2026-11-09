@@ -153,7 +153,7 @@ footer a{color:var(--wine);text-decoration:none}
 
 <div class="beta-banner" aria-label="Thông báo mở bán Beta">
   <div class="beta-banner-content">
-    <span class="beta-banner-text">Ưu đãi tuần này: 499.000đ · Sang tuần chính thức tăng lên 699.000đ</span>
+    <span class="beta-banner-text">Ưu đãi đặc biệt: 499.000đ (Giá gốc 999.000đ · Tiết kiệm 500k) · Sắp tăng lên 699.000đ</span>
     <span class="beta-sep" aria-hidden="true">·</span>
     <span class="beta-timer-wrap">
       <span class="beta-timer-label">Còn lại:</span>
@@ -283,7 +283,18 @@ footer a{color:var(--wine);text-decoration:none}
   <script src="/assets/scroll-effects.js" defer></script>
 <script>
 (function() {
-  const target = new Date('2026-11-08T23:59:59+07:00').getTime();
+  function getRollingTarget() {
+    const now = new Date();
+    const day = now.getDay();
+    const daysUntilSunday = (7 - day) % 7;
+    const sunday = new Date(now.getFullYear(), now.getMonth(), now.getDate() + daysUntilSunday, 23, 59, 59, 999);
+    if (sunday.getTime() - now.getTime() < 3600000) {
+      sunday.setDate(sunday.getDate() + 7);
+    }
+    return sunday.getTime();
+  }
+
+  let target = getRollingTarget();
   const dEl = document.getElementById('cd-days');
   const hEl = document.getElementById('cd-hours');
   const mEl = document.getElementById('cd-mins');
@@ -294,21 +305,29 @@ footer a{color:var(--wine);text-decoration:none}
     const now = Date.now();
     let diff = target - now;
     if (diff <= 0) {
-      diff = 0;
-      const wrap = document.querySelector('.beta-timer-wrap');
-      if (wrap) wrap.innerHTML = '<span style="color:#FAE67A;font-weight:600">Ưu đãi 499k tuần này đã kết thúc</span>';
-      return;
+      target = getRollingTarget();
+      diff = target - now;
     }
     const days = Math.floor(diff / (1000 * 60 * 60 * 24));
     const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
     const mins = Math.floor((diff / (1000 * 60)) % 60);
     const secs = Math.floor((diff / 1000) % 60);
 
-    dEl.textContent = String(days).padStart(2, '0');
-    hEl.textContent = String(hours).padStart(2, '0');
-    mEl.textContent = String(mins).padStart(2, '0');
-    sEl.textContent = String(secs).padStart(2, '0');
+    const dStr = String(days).padStart(2, '0');
+    const hStr = String(hours).padStart(2, '0');
+    const mStr = String(mins).padStart(2, '0');
+    const sStr = String(secs).padStart(2, '0');
+
+    dEl.textContent = dStr;
+    hEl.textContent = hStr;
+    mEl.textContent = mStr;
+    sEl.textContent = sStr;
+
+    document.querySelectorAll('.pricebox-countdown').forEach(el => {
+      el.textContent = `${dStr} ngày ${hStr}:${mStr}:${sStr}`;
+    });
   }
+
   update();
   setInterval(update, 1000);
 })();
