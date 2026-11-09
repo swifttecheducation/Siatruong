@@ -1,0 +1,614 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Cổng đối tác giới thiệu · Sia Truong</title>
+<meta name="description" content="Tra cứu số lượt giới thiệu và theo dõi hoa hồng 20% tích lũy theo thời gian thực từ Sia Truong.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ivory: #F8F5F2;
+  --beige: #D4CABE;
+  --wine: #720000;
+  --wine-hover: #550000;
+  --olive: #798466;
+  --olive-bg: #E4E7DC;
+  --olive-ink: #37432D;
+  --ink: #302B28;
+  --muted: #635B55;
+  --line: #DED5CC;
+  --chip: #EEE8E1;
+  --card: #FFFFFF;
+  --card-sub: #FAF8F5;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--ivory);
+  color: var(--ink);
+  font: 15px/1.8 'Be Vietnam Pro', sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+nav, main, footer {
+  max-width: 1000px;
+  margin: auto;
+  padding: 24px 30px;
+}
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--line);
+  padding: 24px 0;
+}
+.brand {
+  font-family: Alegreya, serif;
+  font-size: 28px;
+  color: var(--wine);
+  font-weight: 600;
+  text-decoration: none;
+  letter-spacing: -0.3px;
+}
+.navlinks {
+  display: flex;
+  gap: 24px;
+  font-size: 13px;
+  align-items: center;
+}
+.navlinks a {
+  color: var(--muted);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.navlinks a:hover, .navlinks a.active {
+  color: var(--wine);
+}
+.badge-partner {
+  font-size: 11px;
+  font-weight: 600;
+  background: var(--chip);
+  color: var(--wine);
+  padding: 4px 12px;
+  border-radius: 20px;
+  border: 1px solid var(--line);
+}
+
+/* MAIN CONTENT */
+.page-header {
+  text-align: center;
+  padding: 40px 0 32px;
+}
+h1 {
+  font-family: Alegreya, serif;
+  font-size: clamp(34px, 4.5vw, 48px);
+  color: var(--ink);
+  font-weight: 600;
+  line-height: 1.15;
+  margin: 0 0 10px;
+}
+h1 i {
+  font-style: italic;
+  color: var(--wine);
+}
+.page-header p {
+  color: var(--muted);
+  font-size: 15px;
+  margin: 0 auto;
+  max-width: 580px;
+}
+
+/* CARD KHỐI CHUNG */
+.card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 32px;
+  margin-bottom: 24px;
+  box-shadow: 0 10px 30px rgba(48, 43, 40, 0.03);
+}
+
+/* SEARCH BAR */
+.search-form {
+  display: flex;
+  gap: 12px;
+}
+.search-form input {
+  flex: 1;
+  border: 1px solid var(--beige);
+  background: var(--card-sub);
+  padding: 14px 18px;
+  border-radius: 6px;
+  font: inherit;
+  color: var(--ink);
+  outline: none;
+  transition: all 0.2s;
+}
+.search-form input:focus {
+  border-color: var(--wine);
+  background: #fff;
+}
+.btn-primary {
+  background: var(--wine);
+  color: #fff;
+  border: none;
+  padding: 14px 28px;
+  border-radius: 6px;
+  font: 500 14px 'Be Vietnam Pro', sans-serif;
+  cursor: pointer;
+  transition: background 0.2s;
+  white-space: nowrap;
+}
+.btn-primary:hover {
+  background: var(--wine-hover);
+}
+.btn-primary:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* STATUS MESSAGE */
+.status-notice {
+  display: none;
+  text-align: center;
+  padding: 18px;
+  font-size: 14px;
+  border-radius: 8px;
+  margin-bottom: 24px;
+}
+.status-notice.loading {
+  background: var(--card-sub);
+  color: var(--muted);
+  border: 1px dashed var(--line);
+}
+.status-notice.error {
+  background: #FDF2F0;
+  color: var(--wine);
+  border: 1px solid #E8C4BE;
+}
+
+/* DASHBOARD CONTENT */
+.partner-summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: 16px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--line);
+  margin-bottom: 24px;
+}
+.partner-tag {
+  font-size: 12px;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 4px;
+}
+.partner-title {
+  font-family: Alegreya, serif;
+  font-size: 30px;
+  font-weight: 600;
+  color: var(--wine);
+  line-height: 1.1;
+  margin: 0;
+}
+.partner-code-badge {
+  font-family: monospace;
+  font-size: 18px;
+  font-weight: bold;
+  color: var(--wine);
+  background: var(--chip);
+  border: 1px dashed var(--wine);
+  padding: 8px 16px;
+  border-radius: 6px;
+}
+
+/* LINK GIỚI THIỆU */
+.ref-box {
+  background: var(--card-sub);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 28px;
+}
+.ref-url-label {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--olive);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 4px;
+}
+.ref-url-text {
+  font-family: monospace;
+  font-size: 14px;
+  color: var(--wine);
+  word-break: break-all;
+}
+.btn-copy {
+  background: #fff;
+  border: 1px solid var(--line);
+  padding: 9px 18px;
+  border-radius: 6px;
+  font: 500 13px 'Be Vietnam Pro', sans-serif;
+  color: var(--ink);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.2s;
+}
+.btn-copy:hover {
+  border-color: var(--wine);
+  color: var(--wine);
+}
+
+/* LƯỚI THỐNG KÊ (3 CỘT) */
+.metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-bottom: 32px;
+}
+.metric-card {
+  background: var(--card-sub);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 22px 18px;
+  text-align: center;
+}
+.metric-label {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 6px;
+}
+.metric-value {
+  font-family: Alegreya, serif;
+  font-size: 34px;
+  font-weight: 600;
+  color: var(--wine);
+  line-height: 1.1;
+  margin: 4px 0;
+}
+.metric-value.olive {
+  color: var(--olive);
+}
+.metric-note {
+  font-size: 12px;
+  color: var(--muted);
+}
+
+/* BẢNG LỊCH SỬ ĐƠN HÀNG */
+.table-header {
+  font-family: Alegreya, serif;
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--ink);
+  margin: 0 0 14px;
+}
+.table-wrap {
+  overflow-x: auto;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+  text-align: left;
+}
+th {
+  background: var(--card-sub);
+  padding: 12px 16px;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-bottom: 1px solid var(--line);
+}
+td {
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--line);
+}
+tr:last-child td {
+  border-bottom: none;
+}
+.badge-paid {
+  display: inline-block;
+  padding: 3px 10px;
+  background: var(--olive-bg);
+  color: var(--olive-ink);
+  border-radius: 12px;
+  font-size: 11px;
+  font-weight: 600;
+}
+.badge-pending {
+  display: inline-block;
+  padding: 3px 10px;
+  background: var(--chip);
+  color: var(--muted);
+  border-radius: 12px;
+  font-size: 11px;
+  font-weight: 600;
+}
+.empty-table {
+  text-align: center;
+  padding: 36px 16px;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+/* POLICY BOX */
+.policy-card {
+  background: var(--chip);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 22px 26px;
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.8;
+  margin-top: 24px;
+}
+.policy-card strong {
+  color: var(--ink);
+}
+
+/* FOOTER */
+footer {
+  border-top: 1px solid var(--line);
+  padding: 36px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 13px;
+  color: #6e655c;
+  margin-top: 48px;
+}
+footer a {
+  color: var(--wine);
+  text-decoration: none;
+}
+footer a:hover {
+  text-decoration: underline;
+}
+
+@media(max-width: 850px) {
+  nav, main, footer { padding: 20px; }
+  .navlinks { display: none; }
+  .metrics-grid { grid-template-columns: 1fr; }
+  .partner-summary { flex-direction: column; align-items: flex-start; }
+  .ref-box { flex-direction: column; align-items: flex-start; }
+  footer { flex-direction: column; gap: 16px; text-align: center; }
+}
+</style>
+<link rel="stylesheet" href="/assets/scroll-effects.css">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="/icon-180.png">
+<link rel="manifest" href="/site.webmanifest">
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <nav>
+    <a href="/" class="brand">Sia Truong</a>
+    <div class="navlinks">
+      <a href="/">Trang chủ</a>
+      <a href="/ve-sia">Về Sia</a>
+      <a href="/xuong-dung-ranh-tay">Xưởng Dựng</a>
+      <a href="/xuong-dung-ranh-tay/phong-cach">Thư viện phong cách</a>
+      <a href="/qua-tang/he-thong-san-xuat-noi-dung-tu-dong">Quà tặng</a>
+      <a href="/lien-he">Liên hệ</a>
+      <span class="badge-partner">Đối tác 20%</span>
+    </div>
+  </nav>
+
+  <main>
+    <div class="page-header">
+      <h1>Cổng Đối Tác <i>Lan Tỏa</i></h1>
+      <p>Theo dõi số lượt giới thiệu & nhận 20% hoa hồng trực tiếp cho mỗi đơn hàng Xưởng Dựng Rảnh Tay thành công.</p>
+    </div>
+
+    <!-- TÌM KIẾM THEO MÃ HOẶC EMAIL -->
+    <div class="card">
+      <form class="search-form" onsubmit="event.preventDefault(); fetchAffiliateData();">
+        <input type="text" id="refInput" placeholder="Nhập mã giới thiệu (ví dụ: SIA-8LEM) hoặc email mua hàng của bạn..." autocomplete="off">
+        <button type="submit" id="searchBtn" class="btn-primary">Tra cứu</button>
+      </form>
+    </div>
+
+    <!-- TRẠNG THÁI TẢI / LỖI -->
+    <div id="loader" class="status-notice loading">Đang kiểm tra dữ liệu từ Google Sheet...</div>
+    <div id="errorMsg" class="status-notice error"></div>
+
+    <!-- KẾT QUẢ DASHBOARD -->
+    <div id="resultContent" style="display: none;">
+      <div class="card">
+        
+        <div class="partner-summary">
+          <div>
+            <div class="partner-tag">Đối tác đồng hành</div>
+            <h2 class="partner-title" id="ownerNameDisplay">--</h2>
+          </div>
+          <div>
+            <span class="partner-code-badge" id="refCodeBadge">--</span>
+          </div>
+        </div>
+
+        <!-- LINK GIỚI THIỆU -->
+        <div class="ref-box">
+          <div style="flex: 1; min-width: 0;">
+            <div class="ref-url-label">Đường dẫn giới thiệu riêng của bạn:</div>
+            <div class="ref-url-text" id="shareUrlDisplay">--</div>
+          </div>
+          <button type="button" class="btn-copy" id="copyBtn" onclick="copyShareUrl()">Sao chép link</button>
+        </div>
+
+        <!-- 3 CHỈ SỐ -->
+        <div class="metrics-grid">
+          <div class="metric-card">
+            <div class="metric-label">Người đã đăng ký</div>
+            <div class="metric-value" id="totalInvited">0</div>
+            <div class="metric-note">Điền form qua link của bạn</div>
+          </div>
+
+          <div class="metric-card">
+            <div class="metric-label">Đơn thành công</div>
+            <div class="metric-value olive" id="paidOrdersCount">0</div>
+            <div class="metric-note">Đã thanh toán bản quyền</div>
+          </div>
+
+          <div class="metric-card">
+            <div class="metric-label">Hoa hồng nhận được (20%)</div>
+            <div class="metric-value" id="totalCommissionFormatted">0 đ</div>
+            <div class="metric-note">Tích lũy thực tế</div>
+          </div>
+        </div>
+
+        <!-- BẢNG LỊCH SỬ -->
+        <div class="table-header">Danh sách người đăng ký qua mã của bạn</div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Thời gian</th>
+                <th>Người mua</th>
+                <th>Số điện thoại</th>
+                <th>Trạng thái</th>
+                <th style="text-align: right;">Hoa hồng (20%)</th>
+              </tr>
+            </thead>
+            <tbody id="ordersTableBody">
+              <!-- Render via JS -->
+            </tbody>
+          </table>
+        </div>
+
+      </div>
+
+      <!-- CHÍNH SÁCH ĐỐI SOÁT -->
+      <div class="policy-card">
+        <strong>Chính sách thanh toán hoa hồng đối tác:</strong><br>
+        • Hoa hồng <strong>20%</strong> được tính trên giá trị thực tế của mỗi đơn hàng chuyển khoản thành công (99.800đ đối với gói 499k, 139.800đ đối với gói 699k).<br>
+        • Sia sẽ đối soát và gửi hoa hồng trực tiếp vào tài khoản ngân hàng của bạn định kỳ.<br>
+        • Để cung cấp hoặc cập nhật Số tài khoản ngân hàng nhận tiền, bạn chỉ cần <strong>Reply trực tiếp email bàn giao</strong> hoặc nhắn tin qua Instagram <strong>@YourFavoriteSia</strong>.
+      </div>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div>© 2026 Sia Truong. Tự động hóa sản xuất nội dung video.</div>
+    <div style="display: flex; gap: 20px;">
+      <a href="/chinh-sach-bao-mat">Chính sách bảo mật</a>
+      <a href="/dieu-khoan">Điều khoản</a>
+      <a href="/lien-he">Liên hệ</a>
+    </div>
+  </footer>
+
+  <script>
+    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyraE7l3L_-uBaHGzKbDgjHZW6jRBpVyJdYeGpgQDeVGyG0BPSKGTZgh2IuzFJQEE38/exec";
+
+    // Tự động nhận diện ?code= hoặc ?ref= trên URL khi vào trang
+    window.addEventListener("DOMContentLoaded", () => {
+      const urlParams = new URLSearchParams(window.location.search);
+      const code = urlParams.get("code") || urlParams.get("ref");
+      if (code) {
+        document.getElementById("refInput").value = code;
+        fetchAffiliateData();
+      }
+    });
+
+    async function fetchAffiliateData() {
+      const input = document.getElementById("refInput").value.trim();
+      const loader = document.getElementById("loader");
+      const errorMsg = document.getElementById("errorMsg");
+      const resultContent = document.getElementById("resultContent");
+      const searchBtn = document.getElementById("searchBtn");
+
+      if (!input) {
+        errorMsg.textContent = "Vui lòng nhập mã giới thiệu hoặc email của bạn.";
+        errorMsg.style.display = "block";
+        return;
+      }
+
+      loader.style.display = "block";
+      errorMsg.style.display = "none";
+      resultContent.style.display = "none";
+      searchBtn.disabled = true;
+
+      try {
+        const response = await fetch(`${SCRIPT_URL}?code=${encodeURIComponent(input)}`, {
+          redirect: "follow"
+        });
+        const res = await response.json();
+
+        if (res.status === "success" && res.data) {
+          const data = res.data;
+          document.getElementById("ownerNameDisplay").textContent = data.ownerName || "Đối tác";
+          document.getElementById("refCodeBadge").textContent = data.code;
+          document.getElementById("shareUrlDisplay").textContent = data.shareUrl;
+          document.getElementById("totalInvited").textContent = data.totalInvited;
+          document.getElementById("paidOrdersCount").textContent = data.paidOrdersCount;
+          document.getElementById("totalCommissionFormatted").textContent = data.totalCommissionFormatted;
+
+          // Render bảng lịch sử
+          const tbody = document.getElementById("ordersTableBody");
+          tbody.innerHTML = "";
+
+          if (!data.history || data.history.length === 0) {
+            tbody.innerHTML = `<tr><td colspan="5" class="empty-table">Chưa có lượt đăng ký nào qua mã của bạn. Hãy sao chép link và chia sẻ ngay nhé!</td></tr>`;
+          } else {
+            data.history.forEach(item => {
+              const tr = document.createElement("tr");
+              const badgeClass = item.isPaid ? "badge-paid" : "badge-pending";
+              const commText = item.isPaid ? (item.commission.toLocaleString("vi-VN") + " đ") : "Chờ thanh toán";
+              const commColor = item.isPaid ? "var(--wine)" : "var(--muted)";
+
+              tr.innerHTML = `
+                <td>${item.date}</td>
+                <td><strong>${item.customer}</strong></td>
+                <td>${item.phone}</td>
+                <td><span class="${badgeClass}">${item.status}</span></td>
+                <td style="text-align: right; font-weight: 600; color: ${commColor};">${commText}</td>
+              `;
+              tbody.appendChild(tr);
+            });
+          }
+
+          resultContent.style.display = "block";
+        } else {
+          errorMsg.textContent = res.message || "Không tìm thấy thông tin của mã này. Vui lòng kiểm tra lại.";
+          errorMsg.style.display = "block";
+        }
+      } catch (err) {
+        console.error(err);
+        errorMsg.textContent = "Không thể kết nối đến máy chủ. Vui lòng thử lại sau giây lát.";
+        errorMsg.style.display = "block";
+      } finally {
+        loader.style.display = "none";
+        searchBtn.disabled = false;
+      }
+    }
+
+    function copyShareUrl() {
+      const urlText = document.getElementById("shareUrlDisplay").textContent;
+      navigator.clipboard.writeText(urlText).then(() => {
+        const btn = document.getElementById("copyBtn");
+        btn.textContent = "Đã sao chép";
+        setTimeout(() => { btn.textContent = "Sao chép link"; }, 2000);
+      });
+    }
+  </script>
+  <script src="/assets/scroll-effects.js" defer></script>
+</body>
+</html>
